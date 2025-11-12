@@ -147,7 +147,9 @@ window.addEventListener('load', () => {
     });
   });
 });
-const base = '/Portfolio/';
+const base = window.location.pathname.includes('portfolio')
+  ? '/portfolio/'
+  : '/';
 
 function goToProject(folder) {
   window.location.href = base + 'Projects/' + folder + '/index.html';
