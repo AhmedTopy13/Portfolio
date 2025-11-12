@@ -147,10 +147,7 @@ window.addEventListener('load', () => {
     });
   });
 });
-const base = window.location.pathname.includes('portfolio')
-  ? '/portfolio/'
-  : '/';
 
 function goToProject(folder) {
-  window.location.href = base + 'Projects/' + folder + '/index.html';
+  window.location.href =  '/Portfolio/Projects/' + folder + '/index.html';
 }
