@@ -5,7 +5,7 @@ document.addEventListener("touchstart", e => e.touches.length > 1 && e.preventDe
 
 // ملاحظة: بتتعامل مع عنصر واحد فقط في كل استدعاء
 function onElementInOutScreenCenter(element, onEnter, onExit, visibilityRatio = 0.5) {
- let wasVisible = false;
+  let wasVisible = false;
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -147,10 +147,8 @@ window.addEventListener('load', () => {
     });
   });
 });
-const base = window.location.pathname.includes('portfolio-topy13.github.io')
-    ? '/portfolio-topy13.github.io/'
-    : '/';
+const base = '/Portfolio/';
 
-  function goToProject(folder) {
-    window.location.href = base + 'Projects/' + folder + '/index.html';
-  }
+function goToProject(folder) {
+  window.location.href = base + 'Projects/' + folder + '/index.html';
+}
