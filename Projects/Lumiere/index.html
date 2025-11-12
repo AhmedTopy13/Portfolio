@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lumière - برنامج إدارة أتلييه الأفراح</title>
+  <style>
+    :root {
+      --primary: #cbc2ab;
+      --hover: #8b8272;
+      --pressed: #979180;
+      --background: #fffaf2;
+      --text: #4a473f;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px;
+      background: var(--primary);
+      color: white;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 24px;
+      background: var(--primary);
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background: var(--hover);
+    }
+
+    .download-btn:active {
+      background: var(--pressed);
+    }
+
+    /* sections */
+    .section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      padding: 80px 20px;
+      gap: 40px;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .section.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .section.hide {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .section:nth-child(even) {
+      flex-direction: row-reverse;
+      background: rgba(203, 194, 171, 0.15);
+      border-radius: 20px;
+    }
+
+    .text-container {
+      flex: 1 1 400px;
+      max-width: 500px;
+    }
+
+    .text-container h2 {
+      color: var(--hover);
+      margin-bottom: 15px;
+    }
+
+    .text-container p {
+      line-height: 1.6;
+    }
+
+    .section img {
+      flex: 1 1 300px;
+      max-width: 500px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s;
+    }
+
+    .section img:hover {
+      transform: scale(1.05);
+    }
+
+    /* social bar */
+    .social-links {
+      position: fixed;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      padding: 10px 20px;
+      border-radius: 20px;
+      z-index: 10;
+    }
+
+    .social-links img {
+      width: 28px;
+      height: auto;
+      filter: grayscale(0.7);
+      transition: transform 0.3s, filter 0.3s;
+    }
+
+    .social-links img:hover {
+      transform: scale(1.2);
+      filter: grayscale(0);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1f1f1f;
+      color: #aaa;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      .section {
+        flex-direction: column !important;
+        text-align: center;
+      }
+
+      .section img {
+        max-width: 90%;
+      }
+
+      .social-links {
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Lumière </h1>
+    <b style="position: relative; top: -10px; font-size: larger;">1.3</b>
+    <p>برنامج لإدارة عمليات تأجير الفساتين والسيشنات مع سهولة الوصول للبيانات والتحكم في الصلاحيات.</p>
+    <a href="https://github.com/AhmedTopy13/Lumi-re/releases/download/v1.0.3/Lumiere.1.0.0.3.rar" class="download-btn">تحميل
+      البرنامج</a>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="text-container">
+        <h2>الشاشة الرئيسية</h2>
+        <p>تحتوي على روابط لجميع الشاشات مثل إدخال الفساتين والميكاب والإحصائيات والإعدادات، مع قائمة جانبية للمهام
+          القادمة.</p>
+      </div>
+      <img src="Assets/Main-window.png" alt="الشاشة الرئيسية">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>إدخال حجوزات الفساتين</h2>
+        <p>تسجيل بيانات العروسة والفستان والسعر والتاريخ مع البائع والملاحظات.
+          <br> مع امكانية طباعة الريسيت للعميلة و معاينة الفستان.
+        </p>
+      </div>
+      <img src="Assets/Dresses-entry.png" alt="إدخال الفساتين">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>إدخال حجز سيشن الميكاب</h2>
+        <p>تسجيل اسم العميلة، نوع الحجز، التاريخ، رقم التليفون، المبلغ والملاحظات.</p>
+      </div>
+      <img src="Assets/Makeup-entry.png" alt="الميكاب">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>ادخال الفساتين</h2>
+        <p>ادخال الفستان بأسمه المتعارف عليه و صورته للمعاينة ف شاشة الحجز.</p>
+      </div>
+      <img src="Assets/Dresses.png" alt="الفساتين">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>التقارير</h2>
+        <p>عرض تقارير مفصلة مع فلاتر حسب التاريخ أو حالة العملية أو البائع و امكانية تصدير التقرير ع هيئة ملف اكسيل.</p>
+      </div>
+      <img src="Assets/Dresses-report.png" alt="التقارير">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>الإحصائيات</h2>
+        <p>عرض الإجماليات والمبالغ المتحققة والمتأخرة لكل من الفساتين والسيشنات.</p>
+      </div>
+      <img src="Assets/Overview.png" alt="الإحصائيات">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>سلة المهملات</h2>
+        <p>الاحتفاظ بالعمليات المحذوفة لإمكانية استرجاعها لاحقًا.</p>
+      </div>
+      <img src="Assets/Recyclebin.png" alt="سلة المهملات">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>المستخدمين</h2>
+        <p>إدارة صلاحيات المستخدمين وإضافة مستخدمين جدد أو تعديلهم.</p>
+      </div>
+      <img src="Assets/users.png" alt="المستخدمين">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>معلومات المكان</h2>
+        <p>يتم اضافتهم لظهورهم ف الريسيت المطبوع لدي العميلة.</p>
+      </div>
+      <img src="Assets/Shop-Info.png" alt="المكان">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>الاختصارات</h2>
+        <p>
+          عند الضغط ع <b>F1</b> تظهر شاشة الاختصارات <br>
+          بالاضافة لاختصارات الحفظ مثل <b>CTRL+S</b>
+        </p>
+      </div>
+      <img src="Assets/Shortcuts.png" alt="المكان">
+    </section>
+
+    <section class="section">
+      <div class="text-container">
+        <h2>الإعدادات</h2>
+        <p>اختيار اللغة، مكان النسخ الاحتياطي، إعدادات الحذف، والطابعة.</p>
+      </div>
+      <img src="Assets/Settings.png" alt="الإعدادات">
+    </section>
+    <section class="section">
+
+      <video class="section-video" src="Assets/vid.mp4" style="width: 90%; border-radius: 20px; margin: 5%;"
+        preload="auto" muted playsinline loop>
+    </section>
+  </main>
+
+  <div class="social-links">
+    <a href="https://www.facebook.com/Ahmed.topy.13"><img src="socials/facebook.png" alt="facebook"></a>
+    <a href="https://t.me/Ahmed_Topy_13"><img src="socials/telegram.png" alt="telegram"></a>
+    <a href="https://www.tiktok.com/@Ahmed.topy.13"><img src="socials/tiktok.png" alt="tiktok"></a>
+    <a href="https://www.youtube.com/@Ahmed.Topy.13"><img src="socials/youtube.png" alt="youtube"></a>
+    <a href="https://github.com/AhmedTopy13"><img src="socials/github.png" alt="github"></a>
+    <a href="https://www.linkedin.com/in/ahmed-topy13"><img src="socials/linkedin.png" alt="linkedin"></a>
+  </div>
+
+  <footer>
+    <p>© 2025 Lumière - جميع الحقوق محفوظة</p>
+  </footer>
+
+  <script>
+    const videos = document.querySelectorAll(".section-video");
+    document.addEventListener("DOMContentLoaded", function () {
+
+      const videoObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          const video = entry.target;
+          if (entry.isIntersecting) {
+            video.play();
+          } else {
+            video.pause();
+          }
+        });
+      }, { threshold: 0.5 });
+      videos.forEach(video => videoObserver.observe(video));
+    });
+
+    // انيميشن الاسكرول + التلاشي عند الابتعاد
+    const sections = document.querySelectorAll('.section');
+    const toggleOnScroll = () => {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(sec => {
+        const boxTop = sec.getBoundingClientRect().top;
+        const boxBottom = sec.getBoundingClientRect().bottom;
+        if (boxTop < triggerBottom && boxBottom > 100) {
+          sec.classList.add('show');
+          sec.classList.remove('hide');
+        } else {
+          sec.classList.remove('show');
+          sec.classList.add('hide');
+        }
+
+      });
+    };
+    window.addEventListener('scroll', toggleOnScroll);
+    toggleOnScroll();
+  </script>
+</body>
+
+</html>

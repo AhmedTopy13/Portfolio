@@ -1,0 +1,821 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Alastor — أداة اختبار الاختراق</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #F74848;
+            --secondary: #280b0b;
+            --tertiary: #ad3232;
+            --bg: #111;
+            --card-bg: #1a0f0f;
+            --glass: rgba(255, 255, 255, 0.03);
+            --text: #fff;
+            --muted: #cfc0c0;
+            --max-width: 980px;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: linear-gradient(180deg, var(--secondary), #0d0a0a);
+            color: var(--text)
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        /* header / sticky */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: fixed;
+            inset: 0;
+            opacity: 0.06;
+            background: linear-gradient(45deg, var(--primary), var(--tertiary));
+            filter: blur(40px);
+            z-index: -1;
+            pointer-events: none
+        }
+
+        .hero-inner {
+            width: 100%;
+            max-width: var(--max-width);
+            padding: 48px;
+        }
+
+        .title-large {
+            font-size: clamp(28px, 10vw, 110px);
+            font-weight: 800;
+            line-height: 0.95;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            text-align: center;
+            transition: all .35s ease;
+        }
+
+        .subtitle {
+            margin-top: 12px;
+            text-align: center;
+            color: var(--muted);
+            font-weight: 300
+        }
+
+        /* sticky smaller header on scroll */
+        header.sticky {
+            position: fixed;
+            top: 18px;
+            left: 18px;
+            right: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9999;
+            pointer-events: auto;
+            transform: translateY(-10px);
+            opacity: 0;
+            transition: all .25s ease;
+            backdrop-filter: blur(8px);
+            background: var(--glass);
+            padding: 8px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        header.visible {
+            transform: translateY(0);
+            opacity: 1
+        }
+
+        .mini-title {
+            font-weight: 700;
+            font-size: 20px;
+            padding: 10px 14px;
+            border-left: 4px solid var(--primary);
+            background: transparent;
+            backdrop-filter: blur(6px);
+            border-radius: 8px
+        }
+
+        .mini-actions {
+            margin-inline-start: auto;
+            display: flex;
+            gap: 8px;
+            align-items: center
+        }
+
+        .icon-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+            border-radius: 10px;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.04)
+        }
+
+        /* main content */
+        main {
+            max-width: var(--max-width);
+            margin: 36px auto;
+            padding: 18px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px
+        }
+
+        @media(min-width:880px) {
+            .grid {
+                grid-template-columns: 1fr 320px
+            }
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        h3 {
+            margin: 6px 0 8px
+        }
+
+        p {
+            margin: 0 0 10px;
+            color: var(--muted);
+            line-height: 1.6
+        }
+
+        /* feature */
+        .feature {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start
+        }
+
+        .feature .anim {
+            padding: 15px;
+            width: 100px;
+            height: 100px;
+            flex: 0 0 120px
+        }
+
+        .feature .body {
+            flex: 1
+        }
+
+        /* footer area in the aside */
+        .aside-right {
+            position: sticky;
+            top: 120px;
+            align-self: start;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        /* CTA button */
+        .cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 22px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, var(--primary), var(--tertiary));
+            color: #fff;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 12px 36px rgba(247, 72, 72, 0.14);
+            transition: transform .18s;
+            font-size: 16px;
+
+        }
+
+        .cta:active {
+            transform: translateY(2px)
+        }
+
+        .cta.animated {
+            animation: ctaPulse 2.2s infinite
+        }
+
+        @keyframes ctaPulse {
+            0% {
+                transform: scale(1)
+            }
+
+            50% {
+                transform: scale(1.02)
+            }
+
+            100% {
+                transform: scale(1)
+            }
+        }
+
+        /* small utilities */
+        .muted {
+            color: var(--muted)
+        }
+
+        .divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.03);
+            margin: 12px 0;
+            border-radius: 2px
+        }
+
+        /* floating social rail */
+        .social-rail {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            padding: 8px;
+            background: transparent;
+            border-radius: 12px;
+            border: 0
+        }
+
+        .mini-actions .social-rail a {
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.03)
+        }
+
+        .social-rail a {
+            padding: 8px;
+            border-radius: 8px
+        }
+
+        /* download & back btns */
+        .small-btn {
+            padding: 10px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: transparent;
+            font-size: 15px;
+            z-index: 99;
+        }
+
+        /* disclaimer */
+        .disclaimer {
+            font-size: 13px;
+            color: #ffd6d6;
+            background: linear-gradient(180deg, rgba(247, 72, 72, 0.08), rgba(173, 50, 50, 0.02));
+            padding: 12px;
+            border-radius: 8px
+        }
+
+        .download-btn {
+            color: #ffd6d6;
+            font-size: large;
+            font-weight: 700;
+            margin-left: 30px;
+            margin-right: 30px;
+            z-index: 99;
+        }
+
+        footer {
+            max-width: var(--max-width);
+            margin: 36px auto;
+            padding: 12px;
+            text-align: center;
+            color: var(--muted)
+        }
+
+
+
+
+        /* Matrix rain effect styles */
+        .matrix-container {
+            /* position: relative;
+            display: flex; */
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            z-index: 2;
+            /* Ensure it stays above the rain effect */
+        }
+
+        .matrix-text {
+            color: var(--primary);
+            font-family: monospace;
+            font-size: clamp(28px, 10vw, 110px);
+            font-weight: 800;
+            line-height: 0.95;
+            margin: 0;
+            padding: 0;
+            /* color: var(--text); */
+            text-align: center;
+            position: relative;
+            text-shadow: 0 0 10px var(--secondary), 0 0 20px var(--tertiary), 0 0 30px var(--primary);
+            z-index: 2;
+            /* Ensure it stays above the rain effect */
+        }
+
+        .matrix-text::before {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            animation: glitch 2s infinite;
+            clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+            transform: translate(-2px, -2px);
+            color: var(--primary);
+            text-shadow: 0 0 5px var(--tertiary), 0 0 15px var(--muted);
+        }
+
+        .rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg,
+                    rgba(255, 8, 0, 0.1) 0,
+                    rgba(242, 231, 231, 0.2) 2px,
+                    transparent 4px);
+            animation: rain-glitch 2s both infinite;
+            z-index: 1;
+            /* Place it behind the text */
+        }
+
+        /* Animation for the rain effect */
+        @keyframes rain {
+            0% {
+                transform: translateY(-100%);
+            }
+
+            100% {
+                transform: translateY(100%);
+            }
+        }
+
+        /* Glitch effect for the text */
+        @keyframes glitch {
+
+            0%,
+            100% {
+                clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
+                transform: translate(0);
+            }
+
+            33% {
+                clip-path: polygon(0 0, 100% 0, 100% 15%, 0 15%);
+                transform: translate(-5px, -5px);
+            }
+
+            66% {
+                clip-path: polygon(0 85%, 100% 85%, 100% 100%, 0 100%);
+                transform: translate(5px, 5px);
+            }
+        }
+
+        /* canvas {display: block; position: fixed; top: 0; left: 0; z-index: 0;} */
+        /* ---------- UI cards above canvas ---------- */
+        canvas {
+            pointer-events: none;
+            display: block;
+            position: fixed;
+        }
+
+        /* عشان الكانفاس ما يبلّش الكليكات */
+
+        .ui-floating-card {
+            position: relative;
+            /* يفضل relative داخل الـ layout */
+            z-index: 5 !important;
+            /* فوق الكانفاس والـ rain */
+            background: rgba(17, 17, 17, 0.58);
+            /* غامق شفاف عشان يبان المحتوى */
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+            /* blur أقوى عشان يفرق اللون */
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            padding: 18px;
+            border-radius: 12px;
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        /* لو عايز تأثير رفرفة خفيف */
+        .ui-floating-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
+        }
+
+        /* نصوص الكارد واضحة */
+        .ui-floating-card h2,
+        .ui-floating-card h3,
+        .ui-floating-card p {
+            color: #fff;
+            /* أبيض واضح */
+            text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+        }
+
+        /* تضخيم ألوان النقاط المهمة */
+        .ui-floating-card .muted {
+            color: #f1e1e1;
+        }
+
+        /* زيّن اللوتي: خليها فوق الكارد محتفظة بتباين */
+        .anim svg {
+            position: relative;
+            z-index: 6;
+        }
+
+        /* لو في عناصر داخل aside أو غيرها نديها نفس الستايل */
+        .aside-right .card,
+        main .card,
+        .portfolio-item .card,
+        .details,
+        .portfolio-item {
+            /* Only apply if they aren't already styled badly */
+        }
+
+        /* اختيار مخصص لعناصر الخصائص لو كانت مختفية */
+        .feature .body {
+            color: #fff;
+        }
+
+        /* يضمن ظهور نص الفيتشر */
+        .feature h3 {
+            color: #fff;
+            font-weight: 800;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas></canvas>
+    <!-- big hero -->
+    <div class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-inner">
+            <!-- <h1 class="title-large">Alastor</h1> -->
+            <h1 class="matrix-text" data-text="Alastor">Alastor</h1>
+            <p class="subtitle">هذا البرنامج لأغراض الاختبار فقط — لا يحق استخدامه إلا على أجهزتك الشخصية أو على
+                الأجهزة
+                التي حصلت على إذن صريح منها.</p>
+        </div>
+    </div>
+
+    <!-- sticky mini header -->
+    <header id="miniHeader" class="sticky" aria-hidden="true">
+        <div class="mini-title">Alastor</div>
+        <div class="mini-actions">
+            <!-- social icons — استبدل الروابط بروابطك -->
+            <nav class="social-rail" aria-label="social">
+                <a class="icon-btn" href="https://t.me/Ahmed_Topy_13" target="_blank">تليجرام</a>
+                <a class="icon-btn" href="https://www.youtube.com/@Ahmed.Topy.13" target="_blank">يوتيوب</a>
+                <a class="icon-btn" href="https://github.com/AhmedTopy13" target="_blank">جيت هاب</a>
+                <a class="icon-btn" href="https://www.facebook.com/Ahmed.topy.13" target="_blank">فيسبوك</a>
+            </nav>
+            <button class="icon-btn small-btn download-btn" onclick="downloadApp()">تحميل</button>
+            <a class="icon-btn small-btn" href="/">ارجع للموقع</a>
+        </div>
+    </header>
+
+    <main>
+        <div class="grid">
+            <section class="card">
+                <h2>Alastor</h2>
+                <p class="muted">برنامج لاختبار الاختراق . يعمل على أندرويد من الإصدار 8 إلى 16. الاستخدام للتعليم
+                    والاختبار فقط — يمنع الاستخدام في أي نشاط غير قانوني وقد يتعرض المستخدم للمساءلة القانونية.</p>
+
+                <div class="divider"></div>
+
+                <!-- Features list -->
+                <article class="features">
+
+                    <div class="feature" id="f-infinite">
+                        <div class="anim" data-lottie="assets/infinite-devices.json"></div>
+                        <div class="body">
+                            <h3>إمكانية اختبار عدد لا نهائي من الأجهزة</h3>
+                            <p>تسمح Alastor بتوسيع نطاق الاختبار للوصول إلى أجهزة متعددة وإدارتها ضمن بيئة اختبارية
+                                مُحكمة دون حد عملي لعدد الأجهزة (باستخدام البنية الصحيحة للشبكة وموارد السيرفر).</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="anim" data-lottie="assets/spread.json"></div>
+                        <div class="body">
+                            <h3>إمكانية الانتشار في الأجهزة</h3>
+                            <p>آليات نشر تجريبية ضمن شبكة اختبارية تسمح بتثبيت مكونات الاختبار على أجهزة مُصرّح بها
+                                لأغراض تقييم مقاومة التهديدات وانتشار البرمجيات داخل البيئة.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="anim" data-lottie="assets/contacts.json"></div>
+                        <div class="body">
+                            <h3>سحب جهات الاتصال من الجهاز</h3>
+                            <p>قراءة جهات الاتصال متاحة لأغراض اختبار استرجاع البيانات والتحقق من سياسات التحكم
+                                بالوصول
+                                على الأجهزة التي لديك إذن لاختبارها فقط.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="anim" data-lottie="assets/messages.json"></div>
+                        <div class="body">
+                            <h3>سحب الرسائل من الجهاز</h3>
+                            <p>استخراج الرسائل النصية وإجراء اختبارات تسريب البيانات والتحقق من كيفية تعامل الجهاز
+                                مع
+                                بيانات المستخدم عند حدوث اختراق - بشرط الحصول على إذن مسبق.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="anim" data-lottie="assets/calls.json"></div>
+                        <div class="body">
+                            <h3>سحب سجل المكالمات</h3>
+                            <p>عرض وتصدير سجل المكالمات من الأجهزة المصرح بها بهدف تحليل سيناريوهات التعرض واليقظة
+                                الأمنية.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="anim" data-lottie="assets/apps.json"></div>
+                        <div class="body">
+                            <h3>سحب أسماء البرامج</h3>
+                            <p>اكتشاف قائمة التطبيقات المثبتة لتحليل بيئة البرامج ونقاط الضعف المحتملة في تطبيقات
+                                الطرف
+                                الثالث.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="anim" data-lottie="assets/camera.json"></div>
+                        <div class="body">
+                            <h3>استخدام الكاميرا الخلفية والأمامية</h3>
+                            <p>التقاط صور ضمن جلسات الاختبار المصرح بها فقط لتحليل السلوكيات أو جمع إثبات في
+                                بيئة
+                                مراقبة قانونية.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="anim" data-lottie="assets/location.json"></div>
+                        <div class="body">
+                            <h3>سحب الموقع الحالي</h3>
+                            <p>الحصول على بيانات الموقع الجغرافي لتحليل سيناريوهات الكشف والتتبع عند إجراء اختبارات
+                                أمان
+                                ميدانية مع إذن.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature">
+                        <div class="anim" data-lottie="assets/notifications.json"></div>
+                        <div class="body">
+                            <h3>سحب الإشعارات</h3>
+                            <p>قراءة الإشعارات الواردة لاختبار حساسية المعلومات المتاحة لدى تطبيقات الطرف الثالث على
+                                الجهاز.</p>
+                        </div>
+                    </div>
+
+                </article>
+
+                <div class="divider"></div>
+
+                <div class="disclaimer">
+                    <strong>تنبيه قانوني:</strong> البرنامج لأغراض تعليمية واختبارية فقط. يمنع استخدام Alastor في أي
+                    نشاط يخالف القانون أو ينتهك خصوصية الآخرين. المستخدم وحده مسؤول عن أي استعمال غير قانوني وقد
+                    يتعرّض
+                    للمساءلة.
+                </div>
+
+                <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
+                    <button class="cta animated" id="purchaseBtn">اتصل للشراء</button>
+                    <button class="small-btn download-btn" onclick="downloadApp()">تحميل (نسخة تجريبية)</button>
+                </div>
+
+            </section>
+
+            <!-- right aside -->
+            <aside class="aside-right">
+                <div class="card">
+                    <h4>معلومات سريعة</h4>
+                    <p class="muted">Alastor — يعمل على Android 8 → 16. للاستخدام التعليمي والاختباري فقط.</p>
+                    <div class="divider"></div>
+                    <div style="display:flex;gap:8px;flex-wrap:wrap">
+                        <button class="small-btn download-btn" onclick="downloadApp()">تحميل</button>
+                        <a class="small-btn" href="/">العودة للموقع</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h4>قنوات التواصل</h4>
+                    <nav style="display:flex;flex-direction:column;gap:8px">
+                        <a href="https://t.me/Ahmed_Topy_13" target="_blank">تليجرام</a>
+                        <a href="https://www.youtube.com/@Ahmed.Topy.13" target="_blank">يوتيوب</a>
+                        <a href="https://github.com/AhmedTopy13" target="_blank">جيت هاب</a>
+                        <a href="https://www.facebook.com/Ahmed.topy.13" target="_blank">فيسبوك</a>
+                    </nav>
+                </div>
+
+                <div class="card">
+                    <h4>Alastor V1.0 Beta</h4>
+                    <p class="muted">Alastor — هذا البرنامج لأغراض الاختبار فقط — لا يحق استخدامه إلا على أجهزتك
+                        الشخصية
+                        أو على الأجهزة التي حصلت على إذن صريح منها.</p>
+                    <div style="margin-top:12px">
+                        <button class="cta" id="purchaseBtn2">اتصل للشراء</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+    </main>
+
+    <footer>
+        © <span id="year"></span> Alastor — للاستخدام التعليمي والاختباري فقط. يمنع الاستخدام المخالف للقانون.
+    </footer>
+    <!-- <div class="matrix-container" style="z-index: 1;">
+        <div class="rain" style="z-index: 1;"></div>
+    </div> -->
+
+    <!-- Lottie playback + small scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.1/lottie.min.js" integrity=""
+        crossorigin="anonymous"></script>
+    <script>
+        // set year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Sticky header logic: show when scrolled past hero
+        const mini = document.getElementById('miniHeader');
+        const hero = document.querySelector('.hero');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (!e.isIntersecting) { mini.classList.add('visible'); mini.setAttribute('aria-hidden', 'false'); }
+                else { mini.classList.remove('visible'); mini.setAttribute('aria-hidden', 'true'); }
+            })
+        }, { threshold: 0.05 });
+        observer.observe(hero);
+
+        // Lottie lazy load & play when in view
+        const animEls = document.querySelectorAll('[data-lottie]');
+        const animObs = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const el = entry.target;
+                    if (!el._player) {
+                        try {
+                            const path = el.getAttribute('data-lottie');
+                            el._player = lottie.loadAnimation({ container: el, renderer: 'svg', loop: true, autoplay: true, path: path });
+                        } catch (err) { console.warn('Lottie load failed', err) }
+                    } else {
+                        el._player.play();
+                    }
+                } else {
+                    if (entry.target._player) entry.target._player.pause();
+                }
+            })
+        }, { threshold: 0.35 });
+        animEls.forEach(a => animObs.observe(a));
+
+        animEls.forEach(el => {
+            // فلترة اللون بعد ما اللوتي يتحمل
+            const observer = new MutationObserver(() => {
+                const svg = el.querySelector('svg');
+                if (svg && !svg.dataset.colored) {
+                    svg.dataset.colored = 'true';
+                    // خلي اللون أبيض
+                    svg.style.filter = 'invert(100%) brightness(200%)';
+                }
+            });
+            observer.observe(el, { childList: true, subtree: true });
+        });
+
+
+        // CTA click handler (open contact modal or mailto)
+        const ctas = document.querySelectorAll('#purchaseBtn, #purchaseBtn2');
+        ctas.forEach(b => b.addEventListener('click', () => {
+            // nice pulse + open mail
+            b.classList.add('animated');
+            setTimeout(() => b.classList.remove('animated'), 1400);
+            window.location.href = 'https://www.facebook.com/Ahmed.topy.13';
+        }));
+
+        function downloadApp() {
+            // expected: user will place apk in assets/alastor-latest.apk
+            const link = document.createElement('a');
+            link.href = 'https://github.com/AhmedTopy13/Alastor/releases/download/v1.0/Alastor.apk';
+            link.download = 'Alastor.apk';
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+        }
+        // Initialising the canvas
+        var canvas = document.querySelector('canvas'),
+            ctx = canvas.getContext('2d');
+
+        // Setting the width and height of the canvas
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        // Setting up the letters
+        var letters = 'ABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZABCDEFGHIJKLMNOPQRSTUVXYZ';
+        letters = letters.split('');
+
+        // Setting up the columns
+        var fontSize = 10,
+            columns = canvas.width / fontSize;
+
+        // Setting up the drops
+        var drops = [];
+        for (var i = 0; i < columns; i++) {
+            drops[i] = 1;
+        }
+
+        // Setting up the draw function
+        function draw() {
+            ctx.fillStyle = '#280b0b';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            for (var i = 0; i < drops.length; i++) {
+                var text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillStyle = '#ad3232';
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                drops[i]++;
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+            }
+        }
+
+        // Loop the animation
+        setInterval(draw, 33);
+
+        // جعل الكانفاس لا يتفاعل مع الأحداث (لو مش اتعمل)
+        const cvs = document.querySelector('canvas');
+        if (cvs) { cvs.style.pointerEvents = 'none'; }
+
+        // العناصر اللي محتاجين نخلّيها فوق الخلفية ونطبّق البلور
+        const selectors = [
+            'main section.card',      // كارد المحتوى الرئيسي
+            '.aside-right .card',     // الكاردات اليمين
+            '.portfolio-item .details', // تفاصيل المشاريع
+            '.portfolio-item'         // لو عايز entire portfolio-item ككارد
+        ];
+
+        selectors.forEach(sel => {
+            document.querySelectorAll(sel).forEach(el => {
+                // لو الكلاس مش موجود يضيفه
+                if (!el.classList.contains('ui-floating-card')) {
+                    el.classList.add('ui-floating-card');
+                }
+                // لو محتوى النص فاتح مسافات أو لون باهت نزوده
+                el.style.color = '#fff';
+            });
+        });
+
+        // لو بعض العناصر لسه مش بانة لأن الcanvas بيرسم فوقهم بصيغة layer، نرفع z-index للصنف الأب
+        document.querySelectorAll('header, main, footer, .aside-right').forEach(el => {
+            el.style.zIndex = 6;
+        });
+
+        // لو في عناصر خصائص مش ظاهرة (مثلاً .feature .body) نضمن ظهورها
+        document.querySelectorAll('.feature .body, .feature h3, .feature p').forEach(el => {
+            el.style.color = '#fff';
+            el.style.opacity = 1;
+            el.style.zIndex = 6;
+            el.style.position = 'relative';
+        });
+
+    </script>
+    <script>
+        // ... كود اللوتي الموجود عندك كله هنا ...
+    </script>
+</body>
+
+</html>
