@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Papers | Ahmed Topy</title>
+    <meta name="description" content="3 Papers - Live Wallpaper & Visualizer Maker">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 3 Papers Theme (Blue/Cyan/Dark) */
+        :root {
+            /* Using colors from the image provided earlier or compatible theme */
+            --papers-accent: #00bcd4;
+            /* Cyan */
+            --papers-secondary: #2196f3;
+            /* Blue */
+            --papers-bg: #101015;
+            /* Deep Dark */
+            --papers-card: rgba(30, 30, 40, 0.8);
+
+            /* Overriding global variables */
+            --bg-color: var(--papers-bg);
+            --card-bg: var(--papers-card);
+            --text-primary: #ffffff;
+            --text-secondary: #b0bec5;
+            --accent-color: var(--papers-accent);
+            --border-color: #333;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+
+        .navbar {
+            background: rgba(16, 16, 21, 0.9);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-hero-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            border-radius: 12px;
+            box-shadow: 0 0 40px rgba(0, 188, 212, 0.15);
+            /* Cyan Glow */
+            margin-bottom: 40px;
+            border: 1px solid #333;
+        }
+
+        /* Two Column Layout for Features */
+        .features-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .features-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-block {
+            background: rgba(30, 30, 40, 0.7);
+            /* Transparent Background */
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Gradient Borders or Accents */
+        .block-video {
+            border-top: 4px solid #f44336;
+        }
+
+        /* Red/Orange for Video */
+        .block-visual {
+            border-top: 4px solid #00bcd4;
+        }
+
+        /* Cyan for Music */
+
+        .feature-block h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li::before {
+            content: '•';
+            position: absolute;
+            right: 0;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Shortcuts box styled like Android App Shortcuts */
+        .shortcuts-display {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            border: 1px dashed #555;
+        }
+
+        .shortcut-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px;
+            background: #2d2d2d;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .shortcut-icon {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">&lt;AHMED TOPY/&gt;</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">الرئيسية</a></li>
+                <li><a href="#contact">تواصل معي</a></li>
+                <li><a href="https://github.com/AhmedTopy13/Portfolio/releases/download/3Paper/3.Paper.apk"
+                        class="nav-download-btn"><i class="fas fa-download"></i> تحميل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container" style="padding-top: 60px;">
+
+            <!-- Hero Area -->
+            <div style="text-align: center;">
+                <h1 class="section-title" style="margin-bottom: 15px;">3 Papers</h1>
+                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 30px;">
+                    حول جهازك إلى لوحة فنية متحركة. صانع خلفيات حية (Live Wallpapers) يجمع بين تخصيص الفيديو والتفاعل
+                    الموسيقي (Visualizer).
+                </p>
+
+                <a href="https://github.com/AhmedTopy13/Portfolio/releases/download/3Paper/3.Paper.apk"
+                    class="btn-download" style="margin-bottom: 40px;">
+                    <i class="fab fa-android"></i> تحميل التطبيق (APK)
+                </a>
+                <br>
+                <img src="../../imgs/3papers.gif" class="project-hero-img" style="border-color: var(--papers-accent);"
+                    alt="3 Papers App Interface">
+            </div>
+
+            <!-- Features -->
+            <div class="features-container">
+
+                <!-- Video Mode -->
+                <div class="feature-block block-video">
+                    <h3><i class="fas fa-video" style="color: #f44336;"></i> وضع الفيديو</h3>
+                    <p style="margin-bottom: 20px;">اختيار أي فيديو من جهازك ليكون خلفية متحركة.</p>
+                    <ul class="feature-list">
+                        <li><strong>التحكم في العرض (Scale):</strong>
+                            <br> - قص الفيديو (Crop) ليناسب الشاشة.
+                            <br> - مط الفيديو (Stretch) لملء الشاشة بالكامل.
+                        </li>
+                        <li><strong>التحكم في الصوت:</strong> إمكانية تشغيل صوت الفيديو مع الخلفية أو كتمه.</li>
+                    </ul>
+
+                    <div class="shortcuts-display">
+                        <small style="color: #888; display: block; margin-bottom: 10px;">اختصارات الأيقونة (App
+                            Shortcuts):</small>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon"><i class="fas fa-expand"></i></div>
+                            <span>تغيير المقاس (Crop / Stretch)</span>
+                        </div>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon"><i class="fas fa-volume-up"></i></div>
+                            <span>تشغيل/كتم الصوت</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Visualizer Mode -->
+                <div class="feature-block block-visual">
+                    <h3><i class="fas fa-music" style="color: #00bcd4;"></i> وضع الموسيقى (Visualizer)</h3>
+                    <p style="margin-bottom: 20px;">تفاعل الخلفية "صورة ثابتة" مع إيقاع الموسيقى في جهازك.</p>
+                    <ul class="feature-list">
+                        <li><strong>أنماط التفاعل:</strong>
+                            <br> - <strong>خطي (Linear):</strong> موجات صوتية خطية.
+                            <br> - <strong>دائري (Circular):</strong> موجات دائرية حول المركز.
+                        </li>
+                        <li><strong>تخصيص الألوان:</strong> حرية كاملة في اختيار ألوان الموجات لتناسب الصورة.</li>
+                        <li><strong>اختيار الخلفية:</strong> تعيين أي صورة من المعرض كأرضية للـ Visualizer.</li>
+                    </ul>
+
+                    <div class="shortcuts-display">
+                        <small style="color: #888; display: block; margin-bottom: 10px;">اختصارات الأيقونة (App
+                            Shortcuts):</small>
+                        <div class="shortcut-item">
+                            <div class="shortcut-icon"><i class="fas fa-wave-square"></i></div>
+                            <span>تبديل النمط (خطي / دائري)</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section" style="text-align: center;">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <div class="social-links animate-fade-up">
+                <a href="https://www.facebook.com/profile.php?id=100086216577033" target="_blank"
+                    class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://t.me/Ahmed_Topy_13" target="_blank" class="social-btn telegram"><i
+                        class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.tiktok.com/@Ahmed.topy.13" target="_blank" class="social-btn tiktok"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@Ahmed.Topy.13" target="_blank" class="social-btn youtube"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="https://github.com/AhmedTopy13" target="_blank" class="social-btn github"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ahmed-topy13" target="_blank" class="social-btn linkedin"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../script.js"></script>
+    <script>
+        // Cyan particles for 3 Papers
+        window.addEventListener('load', () => {
+            if (typeof particles !== 'undefined') {
+                particles.forEach(p => p.color = 'rgba(0, 188, 212, 0.4)');
+            }
+            const originalInit = initParticles;
+            initParticles = function () {
+                originalInit();
+                particles.forEach(p => p.color = 'rgba(0, 188, 212, 0.4)');
+            };
+        });
+    </script>
+</body>
+
+</html>

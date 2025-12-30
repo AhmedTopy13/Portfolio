@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory System | Ahmed Topy</title>
+    <meta name="description" content="نظام إدارة المخزون والمحاسبة عبر الإكسيل - Inventory System 1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Excel Dark Mode Theme */
+        :root {
+            /* Excel Green Palette */
+            --excel-green-dark: #217346;
+            --excel-green-light: #107C41;
+
+            /* Dark Mode Grays */
+            --excel-bg-dark: #2b2b2b;
+            /* Common Excel Dark Gray */
+            --excel-card-bg: #363636;
+            --excel-border: #444444;
+
+            /* Overriding global variables */
+            --bg-color: #212121;
+            /* Slightly darker than card */
+            --card-bg: #333333;
+            --text-primary: #ffffff;
+            --text-secondary: #cccccc;
+            --accent-color: #217346;
+            --border-color: #444;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+
+        .navbar {
+            background: rgba(33, 33, 33, 0.85);
+            border-bottom: 1px solid var(--excel-border);
+        }
+
+        .project-hero-img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+            border: 1px solid #444;
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: rgba(54, 54, 54, 0.7);
+            /* Transparent background */
+            border-right: 4px solid var(--accent-color);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: right;
+        }
+
+        .feature-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Shortcuts Table */
+        .shortcuts-box {
+            background: rgba(30, 30, 30, 0.7);
+            /* Transparent background */
+            border: 1px solid #444;
+            border-radius: 8px;
+            padding: 2px;
+            margin-top: 40px;
+            overflow: hidden;
+        }
+
+        .shortcuts-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Fira Code', monospace;
+            direction: ltr;
+            /* English Shortcuts */
+        }
+
+        .shortcuts-table th,
+        .shortcuts-table td {
+            padding: 12px 20px;
+            text-align: left;
+            border-bottom: 1px solid #333;
+        }
+
+        .shortcuts-table th {
+            background: #252526;
+            color: var(--accent-color);
+        }
+
+        .shortcuts-table tr:hover {
+            background: #2a2d2e;
+        }
+
+        .kbd-key {
+            background: #3c3c3c;
+            border: 1px solid #555;
+            border-radius: 3px;
+            padding: 2px 8px;
+            font-size: 0.85rem;
+            box-shadow: 0 2px 0 #222;
+        }
+
+        .highlight-text {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">&lt;AHMED TOPY/&gt;</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">الرئيسية</a></li>
+                <li><a href="#contact">تواصل معي</a></li>
+                <li><a href="https://github.com/AhmedTopy13/Portfolio/releases/download/Inventory_System/Inventory.System.xlsm"
+                        class="nav-download-btn" style="border-color: #217346; color: #feffff;"><i
+                            class="fas fa-download"></i> تحميل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container" style="padding-top: 60px;">
+
+            <!-- Hero Area -->
+            <div style="text-align: center;">
+                <h1 class="section-title" style="margin-bottom: 10px;">Inventory System 1.0</h1>
+                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 20px;">
+                    نظام محاسبي متكامل مبني بالكامل داخل بيئة Excel باستخدام VBA. يجمع بين سهولة استخدام الإكسيل وقوة
+                    البرمجة المخصصة.
+                </p>
+
+                <a href="https://github.com/AhmedTopy13/Portfolio/releases/download/Inventory_System/Inventory.System.xlsm"
+                    class="btn-download" style="background: #217346; color: #fff; margin-bottom: 40px;">
+                    <i class="fas fa-file-excel"></i> تحميل الملف (xlsm)
+                </a>
+                <br>
+                <img src="../../imgs/InvSys.gif" class="project-hero-img" alt="Inventory System Interface">
+            </div>
+
+            <!-- Features Grid -->
+            <h2 class="section-title" style="text-align: center; font-size: 1.8rem; margin-top: 40px;">مميزات الإصدار
+                1.0</h2>
+
+            <div class="feature-grid">
+
+                <!-- Smart Search -->
+                <div class="feature-card">
+                    <h3><i class="fas fa-search"></i> البحث الذكي (F3)</h3>
+                    <p>ميزة قوية تتيح لك الضغط على <strong>F3</strong> في أي خانة (مثل العميل أو الصنف) لفتح نافذة بحث
+                        منبثقة.
+                        <br>عند اختيار العنصر، يقوم النظام تلقائياً بملء الكود، الاسم، والسعر، وباقي البيانات المرتبطة.
+                    </p>
+                </div>
+
+                <!-- Financials -->
+                <div class="feature-card">
+                    <h3><i class="fas fa-cash-register"></i> الإدارة المالية</h3>
+                    <p>إدارة كاملة للخزينة وتسجيل المعاملات المالية (Transactions).
+                        <br>متابعة أرصدة العملاء والموردين بشكل لحظي من شاشات الإدخال.
+                    </p>
+                </div>
+
+                <!-- Data Analysis -->
+                <div class="feature-card">
+                    <h3><i class="fas fa-chart-line"></i> التحليل والتقارير</h3>
+                    <p>شاشات Overview مخصصة للمشتريات والمبيعات مع إمكانيات فلترة متقدمة للبيانات لتحليل الأداء واتخاذ
+                        القرارات.</p>
+                </div>
+
+                <!-- Theme -->
+                <div class="feature-card">
+                    <h3><i class="fas fa-palette"></i> واجهة تفاعلية (Dark Mode)</h3>
+                    <p>تصميم متوافق تماماً مع ثيمات Excel الملونة، مع اعتماد الوضع الليلي (Dark Mode) كواجهة أساسية
+                        مريحة للعين.</p>
+                </div>
+
+            </div>
+
+            <!-- Shortcuts Section -->
+            <div class="shortcuts-box" style="margin-top: 60px;">
+                <h3
+                    style="padding: 15px; background: #252526; margin: 0; color: #fff; border-bottom: 1px solid #444; direction: rtl;">
+                    <i class="fas fa-keyboard"></i> اختصارات لوحة المفاتيح
+                </h3>
+                <table class="shortcuts-table">
+                    <thead>
+                        <tr>
+                            <th>Action</th>
+                            <th>Shortcut</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Filter Items (شاشة العناصر)</td>
+                            <td><span class="kbd-key">F3</span></td>
+                        </tr>
+                        <tr>
+                            <td>Entry Invoice (فاتورة مبيعات)</td>
+                            <td><span class="kbd-key">F5</span></td>
+                        </tr>
+                        <tr>
+                            <td>Invoices Overview (تقرير المبيعات)</td>
+                            <td><span class="kbd-key">Ctrl</span> + <span class="kbd-key">F5</span></td>
+                        </tr>
+                        <tr>
+                            <td>Entry Purchase (فاتورة مشتريات)</td>
+                            <td><span class="kbd-key">F8</span></td>
+                        </tr>
+                        <tr>
+                            <td>Purchases Overview (تقرير المشتريات)</td>
+                            <td><span class="kbd-key">Ctrl</span> + <span class="kbd-key">F8</span></td>
+                        </tr>
+                        <tr>
+                            <td>Entry Clients (العملاء)</td>
+                            <td><span class="kbd-key">F6</span></td>
+                        </tr>
+                        <tr>
+                            <td>Entry Transaction (المعاملات المالية)</td>
+                            <td><span class="kbd-key">F7</span></td>
+                        </tr>
+                        <tr>
+                            <td>Entry Supplier (الموردين)</td>
+                            <td><span class="kbd-key">F9</span></td>
+                        </tr>
+                        <tr>
+                            <td>GO Home (الرئيسية)</td>
+                            <td><span class="kbd-key">F1</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section" style="text-align: center;">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <div class="social-links animate-fade-up">
+                <a href="https://www.facebook.com/profile.php?id=100086216577033" target="_blank"
+                    class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://t.me/Ahmed_Topy_13" target="_blank" class="social-btn telegram"><i
+                        class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.tiktok.com/@Ahmed.topy.13" target="_blank" class="social-btn tiktok"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@Ahmed.Topy.13" target="_blank" class="social-btn youtube"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="https://github.com/AhmedTopy13" target="_blank" class="social-btn github"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ahmed-topy13" target="_blank" class="social-btn linkedin"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabibty | Ahmed Topy</title>
+    <meta name="description" content="طبيبتي - دليل طبيبات ومستشفيات نسائية">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Tabibty Theme (Pink/Purple) */
+        :root {
+            --tabibty-primary: #e91e63;
+            --tabibty-secondary: #c2185b;
+            --tabibty-bg: #221820;
+            /* Dark Purpleish Black */
+            --tabibty-card: rgba(60, 20, 40, 0.6);
+            /* Transparent Pinkish Dark */
+
+            /* Overriding global variables */
+            --bg-color: var(--tabibty-bg);
+            --card-bg: var(--tabibty-card);
+            --text-primary: #ffffff;
+            --text-secondary: #ffcdd2;
+            /* Light Pink text */
+            --accent-color: var(--tabibty-primary);
+            --border-color: #581830;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+
+        .navbar {
+            background: rgba(34, 24, 32, 0.85);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .project-hero-img {
+            max-width: 100%;
+            height: auto;
+            max-height: 500px;
+            /* Restrict height for mobile screenshot look */
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(233, 30, 99, 0.2);
+            margin-bottom: 40px;
+            border: 1px solid var(--border-color);
+        }
+
+        /* Feature Cards */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--tabibty-primary);
+        }
+
+        .feature-card i {
+            font-size: 2.5rem;
+            color: var(--tabibty-primary);
+            margin-bottom: 20px;
+            background: rgba(233, 30, 99, 0.1);
+            width: 70px;
+            height: 70px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .feature-card h3 {
+            color: #fff;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .feature-card p {
+            color: #ffcdd2;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .goal-box {
+            background: rgba(233, 30, 99, 0.05);
+            border: 1px dashed var(--tabibty-primary);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 50px auto;
+            max-width: 800px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">&lt;AHMED TOPY/&gt;</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">الرئيسية</a></li>
+                <li><a href="#contact">تواصل معي</a></li>
+                <li><a href="https://github.com/AhmedTopy13/Portfolio/releases/download/Tabibaty/Tabibty.apk"
+                        class="nav-download-btn" style="border-color: #e91e63; color: #e91e63;"><i
+                            class="fas fa-download"></i> تحميل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container" style="padding-top: 60px;">
+
+            <!-- Hero Area -->
+            <div style="text-align: center;">
+                <h1 class="section-title" style="margin-bottom: 15px; color: #fff;">طبيبتي</h1>
+                <h3 style="color: var(--tabibty-primary); margin-bottom: 20px;">دليلك للرعاية الصحية النسائية الآمنة
+                </h3>
+                <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto 30px;">
+                    منصة متخصصة تهدف لتوفير الخصوصية والراحة للنساء عبر تسهيل الوصول للطبيبات والمراكز الصحية النسائية.
+                </p>
+
+                <a href="https://github.com/AhmedTopy13/Portfolio/releases/download/Tabibaty/Tabibty.apk"
+                    class="btn-download" style="background: #e91e63; color: #fff; margin-bottom: 40px;">
+                    <i class="fab fa-android"></i> تحميل التطبيق (APK)
+                </a>
+                <br>
+                <!-- Using GIF if available based on main page usage -->
+                <img src="../../imgs/tabibty.gif" class="project-hero-img" alt="Tabibty App Interface">
+            </div>
+
+            <!-- Goal Section -->
+            <div class="goal-box">
+                <i class="fas fa-heart" style="color: #e91e63; font-size: 2rem; margin-bottom: 15px;"></i>
+                <h3 style="margin-bottom: 10px;">الهدف من المشروع</h3>
+                <p>رفع الحرج عن النساء وتوفير بيئة علاجية مريحة من خلال الوصول السريع لأقرب طبيبة متخصصة أو مستشفى بطاقم
+                    تمريض نسائي متكامل.</p>
+            </div>
+
+            <!-- Features Grid -->
+            <h2 class="section-title" style="text-align: center; font-size: 1.8rem;">مميزات التطبيق</h2>
+
+            <div class="feature-grid">
+
+                <!-- Database -->
+                <div class="feature-card">
+                    <i class="fas fa-database"></i>
+                    <h3>قاعدة بيانات شاملة</h3>
+                    <p>دليل مفصل يحتوي على عناوين العيادات، أرقام التواصل، ومواعيد العمل لأطباء ومستشفيات في جميع
+                        التخصصات.</p>
+                </div>
+
+                <!-- Searching & Filtering -->
+                <div class="feature-card">
+                    <i class="fas fa-filter"></i>
+                    <h3>بحث وفلترة دقيقة</h3>
+                    <p>إمكانية البحث باسم الطبيبة، المنطقة، أو التخصص.
+                        <br><strong>فلترة خاصة:</strong> البحث عن مستشفيات بطاقم نسائي (كامل أو شبه كامل).
+                    </p>
+                </div>
+
+                <!-- Contact -->
+                <div class="feature-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>سهولة التواصل</h3>
+                    <p>أزرار اتصال مباشر وحجز مواعيد لتسهيل الرحلة العلاجية وتقليل عناء البحث.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section" style="text-align: center;">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <div class="social-links animate-fade-up">
+                <a href="https://www.facebook.com/profile.php?id=100086216577033" target="_blank"
+                    class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://t.me/Ahmed_Topy_13" target="_blank" class="social-btn telegram"><i
+                        class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.tiktok.com/@Ahmed.topy.13" target="_blank" class="social-btn tiktok"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@Ahmed.Topy.13" target="_blank" class="social-btn youtube"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="https://github.com/AhmedTopy13" target="_blank" class="social-btn github"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ahmed-topy13" target="_blank" class="social-btn linkedin"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../script.js"></script>
+    <script>
+        // Adjust particles for pink theme
+        window.addEventListener('load', () => {
+            if (typeof particles !== 'undefined') {
+                particles.forEach(p => p.color = 'rgba(233, 30, 99, 0.4)');
+            }
+            const originalInit = initParticles;
+            initParticles = function () {
+                originalInit();
+                particles.forEach(p => p.color = 'rgba(233, 30, 99, 0.4)');
+            };
+        });
+    </script>
+</body>
+
+</html>

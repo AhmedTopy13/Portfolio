@@ -1,0 +1,647 @@
+:root {
+    /* Classic Dark IDE Theme (VS Code Dark+ inspired) */
+    --bg-color: #1e1e1e;
+    /* Main editor background */
+    --card-bg: #252526;
+    /* Sidebar/Card background */
+    --text-primary: #d4d4d4;
+    /* Standard code text */
+    --text-secondary: #858585;
+    /* Comments/Secondary text */
+    --accent-color: #569cd6;
+    /* Keyword Blue */
+    --accent-glow: rgba(86, 156, 214, 0.15);
+    --border-color: #3e3e42;
+    /* Borders */
+    --keyword-color: #c586c0;
+    /* Purple for specialized accents */
+    --string-color: #ce9178;
+    /* Orange for strings/highlights */
+
+    --font-heading: 'Tajawal', sans-serif;
+    --transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    /* Enable global snap */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+}
+
+/* Background Canvas */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+    border-left: 1px solid var(--border-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #424242;
+    border: 2px solid var(--bg-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #4f4f4f;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(30, 30, 30, 0.5);
+    /* 50% opacity as requested */
+    backdrop-filter: blur(15px);
+    /* Strong blur */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(30, 30, 30, 0.6);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Year in Background (Foreground Overlay) */
+.project-year-bg {
+    position: absolute;
+    font-size: 15rem;
+    font-weight: 900;
+    /* Control transparency via alpha channel */
+    color: rgba(255, 255, 255, 0.05);
+    z-index: 500;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+    /* Animated to 1 via .visible */
+    pointer-events: none;
+    font-family: 'Consolas', monospace;
+    /* mix-blend-mode removed */
+    transition: all 1s ease-out;
+}
+
+/* Animation State Class */
+.project-year-bg.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-family: 'Consolas', monospace;
+    /* Monospace for logo */
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: var(--transition);
+    font-weight: 500;
+}
+
+.nav-links li a:hover {
+    color: var(--accent-color);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 80px;
+    scroll-snap-align: start;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem;
+    color: var(--accent-color);
+    margin-bottom: 15px;
+}
+
+.typing-container {
+    font-size: 1.5rem;
+    height: 40px;
+    margin-bottom: 20px;
+    font-family: 'Consolas', monospace;
+    color: var(--string-color);
+}
+
+.hero-buttons,
+.cv-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+/* Button Styles */
+.btn {
+    padding: 10px 25px;
+    border: 1px solid var(--accent-color);
+    background: rgba(86, 156, 214, 0.1);
+    color: var(--accent-color);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--accent-color);
+    color: #fff;
+}
+
+/* CV Button - View Style */
+.cv-btn {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+    background: var(--card-bg);
+    /* Dark bg */
+    border: 1px solid var(--text-secondary);
+    /* Subtle border */
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cv-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cv-btn i {
+    color: var(--keyword-color);
+}
+
+
+/* Sections */
+.section {
+    padding: 80px 0;
+    scroll-snap-align: start;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    text-align: center;
+    color: var(--text-primary);
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--accent-color);
+    margin: 10px auto 0;
+    border-radius: 2px;
+}
+
+/* About Section */
+.about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+}
+
+.about-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 6px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.about-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+}
+
+.about-card i {
+    font-size: 2.2rem;
+    color: var(--keyword-color);
+    margin-bottom: 15px;
+}
+
+/* Experience Section (Stacked) */
+.experience-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.experience-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 30px;
+    border-right: 4px solid var(--accent-color);
+}
+
+.company-logo {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.exp-header-stacked {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.exp-title-info h3 {
+    margin: 0 0 5px 0;
+    color: var(--accent-color);
+}
+
+.exp-date {
+    font-family: 'Consolas', monospace;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.exp-list li::before {
+    color: var(--accent-color);
+}
+
+/* PROJECTS TIMELINE */
+.projects-snap-container {
+    position: relative;
+    width: 100%;
+}
+
+/* The vertical line running through all projects */
+.projects-snap-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 50%;
+    /* Center the line or use right for RTL? 
+                   Let's use right side (5%) to avoid cutting content */
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--border-color) 10%, var(--border-color) 90%, transparent);
+    z-index: 0;
+    /* Move to right side for Arabic Logic or Center? 
+       User asked for background timeline. A side line is cleaner. */
+    right: 40px;
+}
+
+@media (min-width: 1200px) {
+    .projects-snap-container::before {
+        right: 50%;
+        /* Center it on large screens if desired, but content is side-by-side. 
+                       Let's keep it subtle on the side or explicit center. */
+        margin-right: -1px;
+    }
+}
+
+.portfolio-item {
+    min-height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 80px 20px;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+    /* Contain the year background */
+}
+
+/* Year in Background (Now Foreground Overlay) */
+/* Duplicate removed */
+
+/* Dot on the timeline */
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--bg-color);
+    border: 3px solid var(--accent-color);
+    border-radius: 50%;
+    top: 50%;
+    right: 33px;
+    /* Match container line */
+    z-index: 1;
+    transform: translateY(-50%);
+}
+
+@media (min-width: 1200px) {
+    .projects-snap-container::before {
+        right: 50%;
+    }
+
+    .timeline-dot {
+        right: 50%;
+        margin-right: -8px;
+    }
+}
+
+.project-content-wrapper {
+    position: relative;
+    z-index: 2;
+    /* Content is 2. Year is 5.
+       User said: "Show year in front of text but transparent".
+       If Year is 5 and Content is 2, Year is on top. Correct.
+    */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+}
+
+.portfolio-title {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+}
+
+/* Image Handling */
+.project-visual {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+    border-radius: 8px;
+    border: none;
+    /* clean look */
+    box-shadow: none;
+    /* clean look */
+    /* Remove default shadow box to fit varied image shapes */
+}
+
+/* Default Image Styling */
+.project-visual img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    max-height: 50vh;
+    /* Conservative default height */
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    /* Shadow on image itself */
+}
+
+/* Mobile App Screenshots (Tall/Portrait) */
+.project-visual img.img-mobile {
+    max-height: 70vh;
+    /* Allow more height for phones */
+    width: auto;
+    /* Keep aspect ratio */
+    max-width: 100%;
+}
+
+/* Ultra Wide (Excel Automation) */
+.project-visual img.img-ultrawide {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    /* Don't restrict height if it's short anyway */
+    object-fit: contain;
+}
+
+.details {
+    padding: 25px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.details h2 {
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.ProjectButton {
+    background: var(--accent-color);
+    color: #fff;
+    border: 1px solid var(--accent-color);
+    padding: 12px 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    /* match other buttons */
+    box-shadow: 0 4px 15px rgba(86, 156, 214, 0.3);
+    transition: var(--transition);
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    text-decoration: none;
+    /* ensure if it's an anchor tag it looks right */
+}
+
+.ProjectButton:hover {
+    background: #4a8bc2;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(86, 156, 214, 0.5);
+    color: #fff;
+}
+
+.ProjectButton.showcase-btn {
+    background: transparent;
+    border: 1px solid #f48771;
+    color: #f48771;
+    box-shadow: none;
+    transform: none;
+    font-weight: normal;
+    padding: 5px 15px;
+    /* Even smaller padding */
+    font-size: 0.8rem;
+    /* Even smaller font */
+    margin-top: 5px;
+    /* Reduce top margin slightly */
+}
+
+.ProjectButton.showcase-btn:hover {
+    background: rgba(244, 135, 113, 0.1);
+    transform: none;
+    box-shadow: none;
+    color: #f48771;
+}
+
+.alert-box {
+    border-right: 4px solid #f48771;
+    /* Warning Orange/Red */
+    background: rgba(244, 135, 113, 0.1);
+    color: #f48771;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 900px) {
+    .project-content-wrapper {
+        grid-template-columns: 1fr;
+    }
+
+    .projects-snap-container::before {
+        display: none;
+        /* Hide line on mobile to avoid clutter */
+    }
+
+    .timeline-dot,
+    .project-year-bg {
+        display: none;
+        /* Simplify mobile view */
+    }
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border: 1px solid var(--border-color);
+    background: var(--card-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    transition: var(--transition);
+    text-decoration: none;
+    /* Remove underline */
+}
+
+.social-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    background: rgba(86, 156, 214, 0.1);
+}
+
+/* Download Buttons Common Styles */
+.btn-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 35px;
+    background: var(--accent-color);
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    cursor: pointer;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-download:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+}
+
+/* Navbar specific download button */
+.nav-download-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    background: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.nav-download-btn:hover {
+    background: var(--accent-color);
+    color: #fff;
+    transform: translateY(-2px);
+}

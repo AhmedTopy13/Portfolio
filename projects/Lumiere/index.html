@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lumière | Ahmed Topy</title>
+    <meta name="description" content="Lumière - نظام إدارة الأتيليهات ومراكز التجميل">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Lumière Theme Overrides */
+        :root {
+            /* Using the provided palette */
+            --lumiere-bg: #FFFBF2;
+            /* Special Background */
+            --lumiere-text: #5d584e;
+            /* Darker version of #CBC2AB for readability */
+            --lumiere-accent: #979180;
+            /* Secondary */
+            --lumiere-primary: #CBC2AB;
+            /* Primary */
+
+            /* Overriding global variables for this page */
+            --bg-color: var(--lumiere-bg);
+            --card-bg: #ffffff;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-color: #8a8473;
+            /* A bit darker than 979180 for contrast */
+            --border-color: #e0d8c0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+        }
+
+        .navbar {
+            background: rgba(255, 251, 242, 0.8);
+            /* Light glass */
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar .logo {
+            color: #555;
+        }
+
+        .nav-links li a {
+            color: #555;
+        }
+
+        .nav-links li a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Timeline / Version Styling */
+        .version-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .version-card {
+            background: rgba(255, 255, 255, 0.5);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.03);
+            position: relative;
+            z-index: 2;
+        }
+
+        .version-badge {
+            background: var(--lumiere-primary);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-family: 'Fira Code', monospace;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            position: relative;
+            padding-right: 25px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+
+        .feature-list li::before {
+            content: '▫';
+            position: absolute;
+            right: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .feature-list strong {
+            color: #4a4a4a;
+        }
+
+        .highlight-box {
+            background: rgba(203, 194, 171, 0.15);
+            border-right: 4px solid var(--lumiere-primary);
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+            font-size: 0.95rem;
+        }
+
+        /* Hero Image override */
+        .project-hero-img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="../../index.html" class="logo">&lt;AHMED TOPY/&gt;</a>
+            <ul class="nav-links">
+                <li><a href="../../index.html">الرئيسية</a></li>
+                <li><a href="#contact">تواصل معي</a></li>
+                <li><a href="https://github.com/AhmedTopy13/Portfolio/releases/download/Lumiere/Lumiere.1.0.0.4.rar"
+                        class="nav-download-btn"
+                        style="border-color: var(--lumiere-secondary); color: var(--lumiere-secondary);"><i
+                            class="fas fa-download"></i> تحميل</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <div style="text-align: center; margin-top: 60px;">
+                <h1 class="section-title" style="color: #444;">Lumière</h1>
+                <p style="color: #666; max-width: 700px; margin: 0 auto 20px;">نظام إدارة الأتيليهات ومراكز التجميل
+                    الشامل. حل متكامل يجمع بين إدارة الحجوزات، المبيعات، ومراقبة المخزون.</p>
+
+                <a href="https://github.com/AhmedTopy13/Portfolio/releases/download/Lumiere/Lumiere.1.0.0.4.rar"
+                    class="btn-download"
+                    style="background: var(--lumiere-primary); color: #fff; margin-bottom: 40px; border-radius: 8px;">
+                    <i class="fas fa-cloud-download-alt"></i> تحميل البرنامج (v1.3)
+                </a>
+                <br>
+
+                <img src="../../imgs/Lumière.gif" class="project-hero-img" alt="Lumiere Interface">
+            </div>
+
+            <div class="version-timeline">
+
+                <!-- Version 1.3 -->
+                <div class="version-card">
+                    <span class="version-badge">Version 1.3 (الأحدث)</span>
+                    <h3>الاحترافية والرقابة الكاملة</h3>
+                    <ul class="feature-list">
+                        <li><strong>تقرير الربحية الشامل:</strong> احتساب صافي الأرباح (الإيرادات - المصروفات) لفترة
+                            محددة أو للنشاط بالكامل.</li>
+                        <li><strong>المخططات الزمنية (Gantt Chart):</strong> (تجريبي) عرض مرئي لفترات حجز الفساتين
+                            لتسهيل التنسيق.</li>
+                        <li><strong>نظام الطباعة:</strong> إصدار إيصالات الحجز بمقاسات مختلفة.</li>
+                        <li><strong>الملاحظات التشاركية:</strong> مساحة عمل مشتركة لتدوين ومشاركة الملاحظات بين فريق
+                            العمل.</li>
+                        <li><strong>سجل العمليات (Audit Logs):</strong> تتبع دقيق لكل عمليات الإضافة، التعديل، والحذف
+                            لضمان الأمان والشفافية.</li>
+                        <li><strong>نظام منع التعارض:</strong> تحذير ذكي عند محاولة حجز فستان في فترة مشغولة.</li>
+                        <li><strong>فترات الأمان (Buffer Time):</strong> إضافة تلقائية لفترة 5 أيام قبل الحجز (للتجهيز)
+                            و5 أيام بعده (للاسترداد والتنظيف).</li>
+                        <li><strong>تحسينات الأداء:</strong> اختصارات لوحة مفاتيح وتسريع العمليات.</li>
+                    </ul>
+                </div>
+
+                <!-- Version 1.2 -->
+                <div class="version-card">
+                    <span class="version-badge">Version 1.2</span>
+                    <h3>التوسع في التفاصيل والماليات</h3>
+                    <ul class="feature-list">
+                        <li><strong>تصنيف الفساتين المتقدم:</strong> حفظ الفساتين بالاسم والصورة للتوثيق.</li>
+                        <li><strong>المعاينة السريعة:</strong> ميزة Popup تعرض صورة الفستان عند الوقوف على اسمه في
+                            القائمة لمدة 3 ثوانٍ.</li>
+                        <li><strong>الإدارة المالية الموسعة:</strong> تسجيل المصروفات والإيرادات العامة (خارج نطاق
+                            الحجوزات).</li>
+                        <li><strong>دقة حالات الحجز:</strong>
+                            <br> - الفساتين: (محجوز - خرج للعميل - تم الاسترداد)
+                            <br> - الميكاب: (محجوز - تم التنفيذ)
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Version 1.0 -->
+                <div class="version-card">
+                    <span class="version-badge">Version 1.0</span>
+                    <h3>البنية التحتية والأساسيات</h3>
+                    <ul class="feature-list">
+                        <li><strong>إدارة الحجوزات:</strong> شاشات مخصصة لإيجار الفساتين وحجز جلسات الميكاب.</li>
+                        <li><strong>إدارة المستخدمين والبائعين:</strong> نظام صلاحيات متكامل.</li>
+                        <li><strong>التقارير الأساسية:</strong> فلترة الحجوزات بالتاريخ، الفترة، أو البائع.</li>
+                        <li><strong>الأمان:</strong> نظام النسخ الاحتياطي وسلة المهملات لاسترجاع البيانات المحذوفة.</li>
+                        <li><strong>الداشبورد المالي (Overview):</strong> ملخص لقيم الحجوزات، المبالغ المستلمة،
+                            المتبقية، والمتأخرات.</li>
+                        <li>
+                            <div class="highlight-box">
+                                <strong>الأجندة اليومية (Today's Agenda):</strong>
+                                شاشة جانبية ذكية ترتب المهام اليومية (تسليم فستان، استلام فستان، جلسة ميكاب) زمنياً
+                                لضمان سير العمل بدقة.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact-section" style="text-align: center;">
+        <div class="container">
+            <h2 class="section-title">تواصل معي</h2>
+            <div class="social-links animate-fade-up">
+                <a href="https://www.facebook.com/profile.php?id=100086216577033" target="_blank"
+                    class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://t.me/Ahmed_Topy_13" target="_blank" class="social-btn telegram"><i
+                        class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.tiktok.com/@Ahmed.topy.13" target="_blank" class="social-btn tiktok"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@Ahmed.Topy.13" target="_blank" class="social-btn youtube"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="https://github.com/AhmedTopy13" target="_blank" class="social-btn github"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ahmed-topy13" target="_blank" class="social-btn linkedin"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <script src="../../script.js"></script>
+    <script>
+        // Force particles to use the dark accent color (#979180) for visibility on light bg
+        window.addEventListener('load', () => {
+            if (typeof particles !== 'undefined') {
+                particles.forEach(p => p.color = '#979180');
+            }
+
+            // Override the draw function's color generation for new or re-init particles?
+            // The simplest way is to overwrite the array elements immediately since they are static after init in the current script.
+            // But valid for resize too.
+            const originalInit = initParticles;
+            initParticles = function () {
+                originalInit();
+                particles.forEach(p => p.color = '#979180'); // Override color
+            };
+            // Force re-init now
+            initParticles();
+        });
+    </script>
+</body>
+
+</html>

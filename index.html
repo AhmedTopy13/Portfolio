@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Topy | Portfolio</title>
+    <meta name="description" content="محفظة أعمال أحمد توبي - محاسب ومبرمج شامل">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <!-- Consolas for IDE feel code parts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">&lt;AHMED TOPY/&gt;</a>
+            <ul class="nav-links">
+                <li><a href="#hero">01. البداية</a></li>
+                <li><a href="#about">02. عني</a></li>
+                <li><a href="#experience">03. الخبرات</a></li>
+                <li><a href="#projects">04. أعمالي</a></li>
+                <li><a href="#contact">05. تواصل معي</a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <header id="hero" class="hero-section">
+        <div class="container hero-content">
+            <h2 class="animate-text">Ahmed Topy</h2>
+            <div class="typing-container">
+                <span class="typing-text"></span><span style="animation: blink 1s infinite">|</span>
+            </div>
+            <p class="hero-bio animate-fade-up">محاسب ومبرمج شامل متخصص في حلول الأندرويد، سطح المكتب، وتطبيقات الأوفيس
+                (VBA).</p>
+
+            <div class="hero-buttons animate-fade-up delay-2">
+                <a href="#projects" class="btn btn-primary">تصفح أعمالي</a>
+                <a href="#contact" class="btn btn-secondary">تواصل معي</a>
+            </div>
+
+            <div class="cv-buttons animate-fade-up delay-2">
+                <a href="assets/cv-ar.pdf" class="cv-btn" target="_blank"><i class="fas fa-eye"></i> عرض CV (عربي)</a>
+                <a href="assets/cv-en.pdf" class="cv-btn" target="_blank"><i class="fas fa-eye"></i> View CV (En)</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section about-section">
+        <div class="container">
+            <h2 class="section-title">من أنا</h2>
+            <div class="about-grid">
+                <div class="about-card animate-scroll">
+                    <i class="fas fa-calculator"></i>
+                    <h3>محاسب</h3>
+                    <p>حديث التخرج - خبرة تدريبية عملية 5 سنوات.</p>
+                </div>
+                <div class="about-card animate-scroll delay-1">
+                    <i class="fab fa-android"></i>
+                    <h3>مبرمج أندرويد</h3>
+                    <p>تطوير تطبيقات قوية بأحدث التقنيات.</p>
+                </div>
+                <div class="about-card animate-scroll delay-2">
+                    <i class="fas fa-desktop"></i>
+                    <h3>مبرمج ديسك توب</h3>
+                    <p>بناء برامج سطح مكتب متكاملة.</p>
+                </div>
+                <div class="about-card animate-scroll delay-3">
+                    <i class="fas fa-file-excel"></i>
+                    <h3>تطبيقات أوفيس</h3>
+                    <p>أتمتة وحلول VBA المتقدمة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+        <div class="container experience-wrapper">
+            <h2 class="section-title">الخبرات المهنية</h2>
+
+            <div class="experience-card animate-scroll">
+                <div class="exp-header-stacked">
+                    <img src="https://www.easy-hbc.com/images/logo.png" alt="Easy Care Logo" class="company-logo"
+                        onerror="this.src='https://placehold.co/100x50?text=EasyCare';">
+                    <div class="exp-title-info">
+                        <h3>شركة إيزي كير (Easy Care)</h3>
+                        <span class="exp-date">2020 - 2025</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="exp-role">تدريب في قسم المالية (AP & Treasury)</div>
+                    <ul class="exp-list">
+                        <li>التدريب العملي على نظام <strong>Oracle EBS 12</strong> (تسجيل الفواتير واستخراج التقارير
+                            المالية).</li>
+                        <li>المشاركة في إدارة قسم <strong>AP</strong> وقسم الخزينة.</li>
+                        <li>تطوير لوحات بيانات وتحليلات مالية متقدمة للإدارة باستخدام <strong>Power BI</strong>.</li>
+                        <li><strong>أتمتة المهام (VBA):</strong> ابتكار حلول برمجية لتحويل العمليات اليدوية المعقدة إلى
+                            نظم آلية داخل Excel.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-card animate-scroll delay-1">
+                <div class="exp-header-stacked">
+                    <img src="https://finetissues.com/_nuxt/logo.0fe71720.png" alt="Fine Logo" class="company-logo">
+                    <div class="exp-title-info">
+                        <h3>مجموعة فاين (Fine Hygienic Holding)</h3>
+                        <span class="exp-date">2023 - 2025</span>
+                    </div>
+                </div>
+                <div class="exp-content">
+                    <div class="exp-role">مساهمات في الأتمتة والتقارير</div>
+                    <p>عقب استحواذ مجموعة فاين على شركة إيزي كير في 2023، توليت مسؤولية تطوير وتنفيذ حلول أتمتة التقارير
+                        وبرمجيات مخصصة لتلبية المعايير التشغيلية للشركة الجديدة.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Projects Section (Snap Scroll) -->
+    <div id="projects" class="projects-snap-container">
+
+        <!-- 2025: Seraphim -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/Seraphim.png" data-gif="imgs/Seraphim.gif">
+            <div class="project-year-bg">2025</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <h1 class="portfolio-title enam" style="direction: ltr">Seraphim</h1>
+                <div class="project-visual">
+                    <!-- Mobile Class Added -->
+                    <img src="imgs/Seraphim.png" class="lazy-media img-mobile" data-src="imgs/Seraphim.gif"
+                        alt="Seraphim — برنامج اختبار اختراق" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>Seraphim</h2>
+                    <button class="ProjectButton showcase-btn" style="cursor: not-allowed;">(Showcase Only - للعرض
+                        فقط)</button>
+
+                    <p>أداة متقدمة لاختبار أمان أنظمة أندرويد (الإصدارات 8 → 16).</p>
+
+                    <p>
+                        1. <strong>بنية تحتية لإدارة أجهزة متعددة:</strong><br />
+                        - يتمتع النظام بالقدرة على مراقبة وإدارة عدد غير محدود من الأجهزة عبر بنية برمجية تعتمد على
+                        قواعد بيانات مركزية.
+                    </p>
+                    <p>
+                        2. <strong>نموذج الاستهداف المرن (Device Agnostic):</strong><br />
+                        - النظام غير مصمم لاستهداف جهاز بعينه، بل يعتمد على مبدأ "التثبيت يعني الاستهداف". أي جهاز يتم
+                        تثبيت التطبيق عليه يتحول تلقائياً إلى نقطة مراقبة (Target) متصلة بلوحة التحكم، مما يتيح اختبار
+                        بيئات متعددة.
+                    </p>
+                    <p>
+                        3. <strong>تحليل البيانات والاتصالات:</strong><br />
+                        - استخراج وتحليل سجلات جهات الاتصال، الرسائل النصية، وسجل المكالمات.
+                    </p>
+                    <p>
+                        4. <strong>المراقبة الحية والتحكم:</strong><br />
+                        - إمكانية الوصول للكاميرات والموقع الجغرافي وقراءة الإشعارات لحظياً.
+                    </p>
+
+                    <div class="alert-box">
+                        <strong>إخلاء مسؤولية قانوني:</strong><br />
+                        تم تطوير هذا المشروع واختباره حصرياً لأغراض تعليمية وبهدف تعزيز البحث الأمني في بيئات معزولة
+                        ومصرح بها. تم إيقاف النظام وتقييد الوصول إليه للعامة وإتاحته للعرض فقط (Showcase) إخلاءً
+                        للمسؤولية ومنعاً لأي استخدام يخالف القوانين المنظمة.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2025: Lumiere -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/Lumière.jpg" data-gif="imgs/Lumière.gif">
+            <div class="project-year-bg">2025</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <h1 class="portfolio-title enam" style="direction: ltr">Lumière</h1>
+                <div class="project-visual">
+                    <!-- Desktop/Normal Aspect Ratio -->
+                    <img src="imgs/Lumière.jpg" class="lazy-media" data-src="imgs/Lumière.gif" alt="Lumière" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>برنامج إدارة الأفراح والميكاب</h2>
+                    <a href="projects/Lumiere/index.html" class="ProjectButton" target="_blank">جربه الان</a>
+                    <p>نظام برمجي متكامل لإدارة الأتيليهات ومراكز التجميل.</p>
+                    <p>
+                        1. <strong>الإدارة المالية والمحاسبية:</strong><br />
+                        - إدارة شاملة للإيرادات والمصروفات، مع إصدار تقارير مالية دورية (يومية/شهرية) لمتابعة الأرباح
+                        والخسائر بدقة.
+                    </p>
+                    <p>
+                        2. <strong>سجل العمليات (Audit Logs):</strong><br />
+                        - نظام حماية ورقابة يسجل كافة العمليات التي يقوم بها المستخدمون داخل البرنامج (إضافة، تعديل،
+                        حذف) لمنع التلاعب وحماية البيانات من السرقة أو الأخطاء غير المقصودة.
+                    </p>
+                    <p>
+                        3. <strong>نظام الحجوزات المركزي:</strong><br />
+                        - إدارة احترافية لحجوزات الفساتين وجلسات التجميل، مع دعم المعاينة الصورية.
+                    </p>
+                    <p>
+                        4. <strong>الملاحظات التشاركية:</strong><br />
+                        - قسم مخصص لإنشاء ومشاركة الملاحظات الهامة بين فريق العمل لتحسين التواصل الداخلي.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2025: Inventory System -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/InvSys.png" data-gif="imgs/InvSys.gif">
+            <div class="project-year-bg">2025</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <h1 class="portfolio-title enam" style="direction: ltr">Inventory System 1.0</h1>
+                <div class="project-visual">
+                    <!-- Desktop/Normal Aspect Ratio -->
+                    <img src="imgs/InvSys.png" class="lazy-media" data-src="imgs/InvSys.gif" alt="Inventory System" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>نظام المخزون للمتاجر الصغيرة</h2>
+                    <a href="projects/InventorySystem/index.html" class="ProjectButton" target="_blank">جربه الان</a>
+                    <p>حل برمجي مجاني لإدارة المخزون والمحاسبة.</p>
+                    <p>
+                        1. <strong>إدارة دورة العمل التجارية:</strong><br />
+                        - تسجيل ومتابعة شاملة لعمليات البيع والشراء.
+                    </p>
+                    <p>
+                        2. <strong>تقنيات البحث المتقدم:</strong><br />
+                        - واجهة استخدام سريعة تدعم اختصارات (F3) للبحث واسترجاع البيانات.
+                    </p>
+                    <p>
+                        3. <strong>المحاسبة الآلية:</strong><br />
+                        - إجراء العمليات الحسابية للأرصدة والتكاليف تلقائياً.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2024: Tabibty -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/tabibty.jpg" data-gif="imgs/tabibty.gif">
+            <div class="project-year-bg">2024</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <h1 class="portfolio-title enam" style="direction: ltr">طبيبتي</h1>
+                <div class="project-visual">
+                    <!-- Mobile Class -->
+                    <img src="imgs/tabibty.jpg" class="lazy-media img-mobile" data-src="imgs/tabibty.gif"
+                        alt="tabibty" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>دليل طبيبات نسائي</h2>
+                    <a href="projects/Tabibty/index.html" class="ProjectButton" target="_blank">جربه الان</a>
+                    <p>منصة خدمية لتسهيل الوصول لخدمات الرعاية الصحية النسائية.</p>
+                    <ul>
+                        <li><strong>قاعدة بيانات دقيقة:</strong> عناوين وأرقام عيادات ومستشفيات نسائية.</li>
+                        <li><strong>نظام الفلترة المتقدم:</strong> بحث مخصص حسب التخصص والموقع.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2024: Beauty Corner (Excel Auto) -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/BeautyCorner.jpg"
+            data-gif="imgs/BeautyCorner.jpg">
+            <div class="project-year-bg">2024</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <h1 class="portfolio-title enam" style="direction: ltr">Excel Automation</h1>
+                <div class="project-visual">
+                    <!-- Ultra Wide Class -->
+                    <img src="imgs/BeautyCorner.jpg" class="lazy-media img-ultrawide" data-src="imgs/BeautyCorner.jpg"
+                        alt="Excel Automation" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>أتمتة تقارير إكسيل - بيوتي كورنر</h2>
+                    <a href="#contact" class="ProjectButton">تواصل لطلب أتمتة مخصصة</a>
+                    <p>مشروع VBA لرفع كفاءة العمليات الإدارية.</p>
+                    <p>
+                        1. <strong>الأتمتة الكاملة للجرد:</strong><br />
+                        - دمج ومعالجة البيانات لإنتاج تقارير جرد يومية بضغطة زر.
+                    </p>
+                    <p>
+                        2. <strong>واجهة المستخدم التفاعلية:</strong><br />
+                        - واجهات تحكم مخصصة داخل Excel لإدارة البيانات بسهولة.
+                    </p>
+                    <p>
+                        3. <strong>تحليل المبيعات:</strong><br />
+                        - تقارير بيفوت ومخططات بيانية لتحليل المبيعات والمخزون.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2024: Excel Course -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/excelCourse.jpg"
+            data-gif="imgs/excelCourse.jpg">
+            <div class="project-year-bg">2024</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <div class="project-visual">
+                    <!-- Mobile Class -->
+                    <img src="imgs/excelCourse.jpg" class="img-mobile" alt="Excel Course" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>كورس Excel الاحترافي</h2>
+                    <p>برنامج تدريبي شامل من الأساسيات حتى البرمجة المتقدمة.</p>
+                    <ul>
+                        <li>إتقان واجهة البرنامج وإدارة البيانات.</li>
+                        <li>استخدام الصيغ والمعادلات المتقدمة.</li>
+                        <li>مقدمة في برمجة <strong>VBA</strong> وأتمتة المهام.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2023: Horus Eye -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/horus.jpg" data-gif="imgs/horus.gif">
+            <div class="project-year-bg">2023</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <h1 class="portfolio-title enam" style="direction: ltr">Horus Eye 3.9</h1>
+                <div class="project-visual">
+                    <!-- Mobile Class -->
+                    <img src="imgs/horus.jpg" class="lazy-media img-mobile" data-src="imgs/horus.gif" alt="Horus Eye" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>برنامج مراقبة واختبار اختراق</h2>
+                    <button class="ProjectButton showcase-btn" style="cursor: not-allowed;">(Showcase Only - للعرض
+                        فقط)</button>
+                    <p>برنامج متقدم (الإصدار 3.9) متخصص في اختبار اختراق أجهزة الأندرويد ومراقبة نشاطها بالكامل.</p>
+
+                    <p><strong>قدرات المراقبة الشاملة:</strong></p>
+                    <ul class="exp-list" style="list-style: none; padding-right: 0;">
+                        <li>• <strong>سجلات الاتصال:</strong> سحب جهات الاتصال، الرسائل النصية (SMS)، وسجل المكالمات
+                            الواردة والصادرة.</li>
+                        <li>• <strong>التتبع الجغرافي:</strong> تحديد موقع الجهاز بدقة (GPS Location).</li>
+                        <li>• <strong>الوسائط المتعددة:</strong> الوصول للكاميرا (التقاط صور)، وتسجيل الشاشة (Screen
+                            Capture).</li>
+                        <li>• <strong>نشاط النظام:</strong> قراءة الإشعارات الحية ورصد حالة الجهاز.</li>
+                    </ul>
+
+                    <div class="alert-box">
+                        <strong>إخلاء مسؤولية قانوني:</strong><br />
+                        تم تطوير هذا المشروع واختباره حصرياً لأغراض تعليمية وبهدف تعزيز البحث الأمني في بيئات معزولة
+                        ومصرح بها. تم إيقاف النظام وتقييد الوصول إليه للعامة وإتاحته للعرض فقط (Showcase) إخلاءً
+                        للمسؤولية ومنعاً لأي استخدام يخالف القوانين المنظمة.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2022: 3 Papers -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/3papers.jpg" data-gif="imgs/3papers.gif">
+            <div class="project-year-bg">2022</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <h1 class="portfolio-title enam" style="direction: ltr">3 Papers</h1>
+                <div class="project-visual">
+                    <!-- Mobile Class -->
+                    <img src="imgs/3papers.jpg" class="lazy-media img-mobile" data-src="imgs/3papers.gif"
+                        alt="برنامج خلفيات متحركة" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>برنامج خلفيات متحركة</h2>
+                    <a href="projects/3Papers/index.html" class="ProjectButton" target="_blank">جربه الان</a>
+                    <p>تطبيق لإنشاء خلفيات حية (Live Wallpapers) تتفاعل مع الصوت والموسيقى المحيطة.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Social Links (Cleaned) -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">05. تواصل معي</h2>
+            <div class="social-links animate-fade-up">
+                <a href="https://www.facebook.com/profile.php?id=100086216577033" target="_blank"
+                    class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://t.me/Ahmed_Topy_13" target="_blank" class="social-btn telegram"><i
+                        class="fab fa-telegram-plane"></i></a>
+                <a href="https://www.tiktok.com/@Ahmed.topy.13" target="_blank" class="social-btn tiktok"><i
+                        class="fab fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@Ahmed.Topy.13" target="_blank" class="social-btn youtube"><i
+                        class="fab fa-youtube"></i></a>
+                <a href="https://github.com/AhmedTopy13" target="_blank" class="social-btn github"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ahmed-topy13" target="_blank" class="social-btn linkedin"><i
+                        class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Ahmed Topy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
