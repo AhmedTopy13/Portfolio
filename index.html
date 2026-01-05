@@ -50,8 +50,33 @@
             </div>
 
             <div class="cv-buttons animate-fade-up delay-2">
-                <a href="assets/cv-ar.pdf" class="cv-btn" target="_blank"><i class="fas fa-eye"></i> عرض CV (عربي)</a>
-                <a href="assets/cv-en.pdf" class="cv-btn" target="_blank"><i class="fas fa-eye"></i> View CV (En)</a>
+                <!-- Arabic Split Button -->
+                <div class="split-btn-group">
+                    <a href="CV/styled-ar.html" target="_blank" class="cv-btn split-main">
+                        <i class="fas fa-eye"></i> عرض CV (عربي)
+                    </a>
+                    <button class="cv-btn split-arrow">
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div class="split-dropdown">
+                        <a href="CV/ats-ar.html" target="_blank">نسخة ATS (للطباعة)</a>
+                        <a href="CV/styled-ar.html" target="_blank">نسخة Styled (للعرض)</a>
+                    </div>
+                </div>
+
+                <!-- English Split Button -->
+                <div class="split-btn-group">
+                    <a href="CV/styled-en.html" target="_blank" class="cv-btn split-main">
+                        <i class="fas fa-eye"></i> View CV (En)
+                    </a>
+                    <button class="cv-btn split-arrow">
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div class="split-dropdown">
+                        <a href="CV/ats-en.html" target="_blank">ATS Version (Print)</a>
+                        <a href="CV/styled-en.html" target="_blank">Styled Version (View)</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -73,7 +98,7 @@
                 <div class="about-card animate-scroll delay-2">
                     <i class="fas fa-desktop"></i>
                     <h3>مبرمج ديسك توب</h3>
-                    <p>بناء برامج سطح مكتب متكاملة.</p>
+                    <p>بناء برامج سطح مكتب متكاملة باستخدام <strong>VB.NET</strong>.</p>
                 </div>
                 <div class="about-card animate-scroll delay-3">
                     <i class="fas fa-file-excel"></i>
@@ -120,9 +145,9 @@
                     </div>
                 </div>
                 <div class="exp-content">
-                    <div class="exp-role">مساهمات في الأتمتة والتقارير</div>
-                    <p>عقب استحواذ مجموعة فاين على شركة إيزي كير في 2023، توليت مسؤولية تطوير وتنفيذ حلول أتمتة التقارير
-                        وبرمجيات مخصصة لتلبية المعايير التشغيلية للشركة الجديدة.</p>
+                    <div class="exp-role">مساهمات تقنية في الأتمتة والتقارير</div>
+                    <p style="font-size: 0.9em; color: #aaa;">تقديم حلول برمجية وأتمتة المهام لرفع الكفاءة التشغيلية
+                        خلال فترة الاستحواذ.</p>
                 </div>
             </div>
 
@@ -132,49 +157,75 @@
     <!-- Projects Section (Snap Scroll) -->
     <div id="projects" class="projects-snap-container">
 
-        <!-- 2025: Seraphim -->
+        <!-- 2026: Quran -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/Quran.jpg" data-gif="imgs/Quran.gif">
+            <div class="project-year-bg">2026</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <h1 class="portfolio-title enam" style="direction: ltr">المصحف المترجم</h1>
+                <div class="project-visual">
+                    <img src="imgs/Quran.jpg" class="lazy-media img-mobile" data-src="imgs/Quran.gif" alt="Quran App" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>المصحف المترجم (مشروع رئيسي)</h2>
+                    <a href="projects/Quran/index.html" class="ProjectButton" target="_blank">جربه الان</a>
+                    <p>تطبيق إسلامي رائد يدمج بين التلاوة الصوتية المتزامنة والتراجم العالمية لتقديم تجربة روحية تفاعلية
+                        تتجاوز عوائق اللغة.</p>
+                    <div class="project-badges">
+                        <span class="project-badge"><i class="fas fa-headset"></i> تظليل صوتي متزامن</span>
+                        <span class="project-badge"><i class="fas fa-language"></i> تراجم لغات متعددة</span>
+                        <span class="project-badge"><i class="fas fa-clock"></i> مواقيت صلاة دقيقة</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2025: Seraphim (Showcase) -->
         <div class="portfolio-item snaps-inline" data-static-image="imgs/Seraphim.png" data-gif="imgs/Seraphim.gif">
             <div class="project-year-bg">2025</div>
             <div class="timeline-dot"></div>
             <div class="project-content-wrapper container">
                 <h1 class="portfolio-title enam" style="direction: ltr">Seraphim</h1>
                 <div class="project-visual">
-                    <!-- Mobile Class Added -->
                     <img src="imgs/Seraphim.png" class="lazy-media img-mobile" data-src="imgs/Seraphim.gif"
-                        alt="Seraphim — برنامج اختبار اختراق" />
+                        alt="Seraphim" />
                 </div>
                 <div class="details" style="text-align: start; direction: rtl">
-                    <h2>Seraphim</h2>
-                    <button class="ProjectButton showcase-btn" style="cursor: not-allowed;">(Showcase Only - للعرض
-                        فقط)</button>
+                    <h2>Seraphim (أداة اختبار أمني)</h2>
+                    <button class="ProjectButton showcase-btn" style="cursor: not-allowed;">(Showcase Only)</button>
+                    <p>مشروع بحثي متقدم (Android RAT) يحاكي تقنيات إنشاء البايلودات المخصصة لاختبار الثغرات الأمنية في
+                        أنظمة الأندرويد.</p>
+                    <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: -5px; line-height: 1.3;">*
+                        تم إيقاف المشروع تماماً للامتثال للقوانين المصرية؛ وهو متاح للعرض الفني وإثبات المهارة البرمجية
+                        فقط.</p>
+                    <div class="project-badges">
+                        <span class="project-badge"><i class="fas fa-video"></i> مراقبة الكاميرا والصوت</span>
+                        <span class="project-badge"><i class="fas fa-map-marker-alt"></i> تتبع الموقع GPS</span>
+                        <span class="project-badge"><i class="fas fa-comment-alt"></i> الرسائل والمكالمات</span>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    <p>أداة متقدمة لاختبار أمان أنظمة أندرويد (الإصدارات 8 → 16).</p>
-
-                    <p>
-                        1. <strong>بنية تحتية لإدارة أجهزة متعددة:</strong><br />
-                        - يتمتع النظام بالقدرة على مراقبة وإدارة عدد غير محدود من الأجهزة عبر بنية برمجية تعتمد على
-                        قواعد بيانات مركزية.
-                    </p>
-                    <p>
-                        2. <strong>نموذج الاستهداف المرن (Device Agnostic):</strong><br />
-                        - النظام غير مصمم لاستهداف جهاز بعينه، بل يعتمد على مبدأ "التثبيت يعني الاستهداف". أي جهاز يتم
-                        تثبيت التطبيق عليه يتحول تلقائياً إلى نقطة مراقبة (Target) متصلة بلوحة التحكم، مما يتيح اختبار
-                        بيئات متعددة.
-                    </p>
-                    <p>
-                        3. <strong>تحليل البيانات والاتصالات:</strong><br />
-                        - استخراج وتحليل سجلات جهات الاتصال، الرسائل النصية، وسجل المكالمات.
-                    </p>
-                    <p>
-                        4. <strong>المراقبة الحية والتحكم:</strong><br />
-                        - إمكانية الوصول للكاميرات والموقع الجغرافي وقراءة الإشعارات لحظياً.
-                    </p>
-
-                    <div class="alert-box">
-                        <strong>إخلاء مسؤولية قانوني:</strong><br />
-                        تم تطوير هذا المشروع واختباره حصرياً لأغراض تعليمية وبهدف تعزيز البحث الأمني في بيئات معزولة
-                        ومصرح بها. تم إيقاف النظام وتقييد الوصول إليه للعامة وإتاحته للعرض فقط (Showcase) إخلاءً
-                        للمسؤولية ومنعاً لأي استخدام يخالف القوانين المنظمة.
+        <!-- 2025: Elme3yar -->
+        <div class="portfolio-item snaps-inline" data-static-image="imgs/Elme3yar.jpg" data-gif="imgs/Elme3yar.gif">
+            <div class="project-year-bg">2025</div>
+            <div class="timeline-dot"></div>
+            <div class="project-content-wrapper container">
+                <h1 class="portfolio-title enam" style="direction: ltr">المعيار</h1>
+                <div class="project-visual">
+                    <img src="imgs/Elme3yar.jpg" class="lazy-media img-mobile" data-src="imgs/Elme3yar.gif"
+                        alt="Elme3yar" />
+                </div>
+                <div class="details" style="text-align: start; direction: rtl">
+                    <h2>المعيار - طابعة ميزان أندرويد</h2>
+                    <a href="projects/AlMeyar/index.html" class="ProjectButton" target="_blank">جربه الان</a>
+                    <p>حل تقني ابتكاري يستبدل موازين الباركود التقليدية عالية التكلفة؛ يتيح إدارة الأوزان والأصناف عبر
+                        الأندرويد بدقة واحترافية.</p>
+                    <div class="project-badges">
+                        <span class="project-badge"><i class="fas fa-file-invoice"></i> بديل اقتصادي للموازين</span>
+                        <span class="project-badge"><i class="fas fa-print"></i> دعم طباعة حرارية</span>
+                        <span class="project-badge"><i class="fas fa-tags"></i> إدارة أصناف ذكية</span>
                     </div>
                 </div>
             </div>
@@ -187,31 +238,18 @@
             <div class="project-content-wrapper container">
                 <h1 class="portfolio-title enam" style="direction: ltr">Lumière</h1>
                 <div class="project-visual">
-                    <!-- Desktop/Normal Aspect Ratio -->
                     <img src="imgs/Lumière.jpg" class="lazy-media" data-src="imgs/Lumière.gif" alt="Lumière" />
                 </div>
                 <div class="details" style="text-align: start; direction: rtl">
-                    <h2>برنامج إدارة الأفراح والميكاب</h2>
+                    <h2>سيستم إدارة أتيليه (Lumière)</h2>
                     <a href="projects/Lumiere/index.html" class="ProjectButton" target="_blank">جربه الان</a>
-                    <p>نظام برمجي متكامل لإدارة الأتيليهات ومراكز التجميل.</p>
-                    <p>
-                        1. <strong>الإدارة المالية والمحاسبية:</strong><br />
-                        - إدارة شاملة للإيرادات والمصروفات، مع إصدار تقارير مالية دورية (يومية/شهرية) لمتابعة الأرباح
-                        والخسائر بدقة.
-                    </p>
-                    <p>
-                        2. <strong>سجل العمليات (Audit Logs):</strong><br />
-                        - نظام حماية ورقابة يسجل كافة العمليات التي يقوم بها المستخدمون داخل البرنامج (إضافة، تعديل،
-                        حذف) لمنع التلاعب وحماية البيانات من السرقة أو الأخطاء غير المقصودة.
-                    </p>
-                    <p>
-                        3. <strong>نظام الحجوزات المركزي:</strong><br />
-                        - إدارة احترافية لحجوزات الفساتين وجلسات التجميل، مع دعم المعاينة الصورية.
-                    </p>
-                    <p>
-                        4. <strong>الملاحظات التشاركية:</strong><br />
-                        - قسم مخصص لإنشاء ومشاركة الملاحظات الهامة بين فريق العمل لتحسين التواصل الداخلي.
-                    </p>
+                    <p>منظومة إدارية متكاملة للأتيليهات، تضمن أعلى مستويات الرقابة المالية وإدارة الحجوزات المصورة لتدفق
+                        بيانات آمن ومنظم.</p>
+                    <div class="project-badges">
+                        <span class="project-badge"><i class="fas fa-shield-alt"></i> سجل رقابة Audit Logs</span>
+                        <span class="project-badge"><i class="fas fa-calculator"></i> إدارة مالية دقيقة</span>
+                        <span class="project-badge"><i class="fas fa-calendar-check"></i> نظام حجوزات مصور</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -221,162 +259,142 @@
             <div class="project-year-bg">2025</div>
             <div class="timeline-dot"></div>
             <div class="project-content-wrapper container">
-                <h1 class="portfolio-title enam" style="direction: ltr">Inventory System 1.0</h1>
+                <h1 class="portfolio-title enam" style="direction: ltr">Inventory System</h1>
                 <div class="project-visual">
-                    <!-- Desktop/Normal Aspect Ratio -->
                     <img src="imgs/InvSys.png" class="lazy-media" data-src="imgs/InvSys.gif" alt="Inventory System" />
                 </div>
                 <div class="details" style="text-align: start; direction: rtl">
-                    <h2>نظام المخزون للمتاجر الصغيرة</h2>
+                    <h2>نظام المخزون (Excel Macro)</h2>
                     <a href="projects/InventorySystem/index.html" class="ProjectButton" target="_blank">جربه الان</a>
-                    <p>حل برمجي مجاني لإدارة المخزون والمحاسبة.</p>
-                    <p>
-                        1. <strong>إدارة دورة العمل التجارية:</strong><br />
-                        - تسجيل ومتابعة شاملة لعمليات البيع والشراء.
-                    </p>
-                    <p>
-                        2. <strong>تقنيات البحث المتقدم:</strong><br />
-                        - واجهة استخدام سريعة تدعم اختصارات (F3) للبحث واسترجاع البيانات.
-                    </p>
-                    <p>
-                        3. <strong>المحاسبة الآلية:</strong><br />
-                        - إجراء العمليات الحسابية للأرصدة والتكاليف تلقائياً.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2024: Tabibty -->
-        <div class="portfolio-item snaps-inline" data-static-image="imgs/tabibty.jpg" data-gif="imgs/tabibty.gif">
-            <div class="project-year-bg">2024</div>
-            <div class="timeline-dot"></div>
-            <div class="project-content-wrapper container">
-                <h1 class="portfolio-title enam" style="direction: ltr">طبيبتي</h1>
-                <div class="project-visual">
-                    <!-- Mobile Class -->
-                    <img src="imgs/tabibty.jpg" class="lazy-media img-mobile" data-src="imgs/tabibty.gif"
-                        alt="tabibty" />
-                </div>
-                <div class="details" style="text-align: start; direction: rtl">
-                    <h2>دليل طبيبات نسائي</h2>
-                    <a href="projects/Tabibty/index.html" class="ProjectButton" target="_blank">جربه الان</a>
-                    <p>منصة خدمية لتسهيل الوصول لخدمات الرعاية الصحية النسائية.</p>
-                    <ul>
-                        <li><strong>قاعدة بيانات دقيقة:</strong> عناوين وأرقام عيادات ومستشفيات نسائية.</li>
-                        <li><strong>نظام الفلترة المتقدم:</strong> بحث مخصص حسب التخصص والموقع.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2024: Beauty Corner (Excel Auto) -->
-        <div class="portfolio-item snaps-inline" data-static-image="imgs/BeautyCorner.jpg"
-            data-gif="imgs/BeautyCorner.jpg">
-            <div class="project-year-bg">2024</div>
-            <div class="timeline-dot"></div>
-            <div class="project-content-wrapper container">
-                <h1 class="portfolio-title enam" style="direction: ltr">Excel Automation</h1>
-                <div class="project-visual">
-                    <!-- Ultra Wide Class -->
-                    <img src="imgs/BeautyCorner.jpg" class="lazy-media img-ultrawide" data-src="imgs/BeautyCorner.jpg"
-                        alt="Excel Automation" />
-                </div>
-                <div class="details" style="text-align: start; direction: rtl">
-                    <h2>أتمتة تقارير إكسيل - بيوتي كورنر</h2>
-                    <a href="#contact" class="ProjectButton">تواصل لطلب أتمتة مخصصة</a>
-                    <p>مشروع VBA لرفع كفاءة العمليات الإدارية.</p>
-                    <p>
-                        1. <strong>الأتمتة الكاملة للجرد:</strong><br />
-                        - دمج ومعالجة البيانات لإنتاج تقارير جرد يومية بضغطة زر.
-                    </p>
-                    <p>
-                        2. <strong>واجهة المستخدم التفاعلية:</strong><br />
-                        - واجهات تحكم مخصصة داخل Excel لإدارة البيانات بسهولة.
-                    </p>
-                    <p>
-                        3. <strong>تحليل المبيعات:</strong><br />
-                        - تقارير بيفوت ومخططات بيانية لتحليل المبيعات والمخزون.
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2024: Excel Course -->
-        <div class="portfolio-item snaps-inline" data-static-image="imgs/excelCourse.jpg"
-            data-gif="imgs/excelCourse.jpg">
-            <div class="project-year-bg">2024</div>
-            <div class="timeline-dot"></div>
-            <div class="project-content-wrapper container">
-                <div class="project-visual">
-                    <!-- Mobile Class -->
-                    <img src="imgs/excelCourse.jpg" class="img-mobile" alt="Excel Course" />
-                </div>
-                <div class="details" style="text-align: start; direction: rtl">
-                    <h2>كورس Excel الاحترافي</h2>
-                    <p>برنامج تدريبي شامل من الأساسيات حتى البرمجة المتقدمة.</p>
-                    <ul>
-                        <li>إتقان واجهة البرنامج وإدارة البيانات.</li>
-                        <li>استخدام الصيغ والمعادلات المتقدمة.</li>
-                        <li>مقدمة في برمجة <strong>VBA</strong> وأتمتة المهام.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2023: Horus Eye -->
-        <div class="portfolio-item snaps-inline" data-static-image="imgs/horus.jpg" data-gif="imgs/horus.gif">
-            <div class="project-year-bg">2023</div>
-            <div class="timeline-dot"></div>
-            <div class="project-content-wrapper container">
-                <h1 class="portfolio-title enam" style="direction: ltr">Horus Eye 3.9</h1>
-                <div class="project-visual">
-                    <!-- Mobile Class -->
-                    <img src="imgs/horus.jpg" class="lazy-media img-mobile" data-src="imgs/horus.gif" alt="Horus Eye" />
-                </div>
-                <div class="details" style="text-align: start; direction: rtl">
-                    <h2>برنامج مراقبة واختبار اختراق</h2>
-                    <button class="ProjectButton showcase-btn" style="cursor: not-allowed;">(Showcase Only - للعرض
-                        فقط)</button>
-                    <p>برنامج متقدم (الإصدار 3.9) متخصص في اختبار اختراق أجهزة الأندرويد ومراقبة نشاطها بالكامل.</p>
-
-                    <p><strong>قدرات المراقبة الشاملة:</strong></p>
-                    <ul class="exp-list" style="list-style: none; padding-right: 0;">
-                        <li>• <strong>سجلات الاتصال:</strong> سحب جهات الاتصال، الرسائل النصية (SMS)، وسجل المكالمات
-                            الواردة والصادرة.</li>
-                        <li>• <strong>التتبع الجغرافي:</strong> تحديد موقع الجهاز بدقة (GPS Location).</li>
-                        <li>• <strong>الوسائط المتعددة:</strong> الوصول للكاميرا (التقاط صور)، وتسجيل الشاشة (Screen
-                            Capture).</li>
-                        <li>• <strong>نشاط النظام:</strong> قراءة الإشعارات الحية ورصد حالة الجهاز.</li>
-                    </ul>
-
-                    <div class="alert-box">
-                        <strong>إخلاء مسؤولية قانوني:</strong><br />
-                        تم تطوير هذا المشروع واختباره حصرياً لأغراض تعليمية وبهدف تعزيز البحث الأمني في بيئات معزولة
-                        ومصرح بها. تم إيقاف النظام وتقييد الوصول إليه للعامة وإتاحته للعرض فقط (Showcase) إخلاءً
-                        للمسؤولية ومنعاً لأي استخدام يخالف القوانين المنظمة.
+                    <p>نظام محاسبي متطور للمشاريع الناشئة؛ يدير المخزون والفواتير والقيود اليومية بقوة البرامج التجارية
+                        وتكلفة منعدمة.</p>
+                    <div class="project-badges">
+                        <span class="project-badge"><i class="fas fa-boxes"></i> دورة مستندية كاملة</span>
+                        <span class="project-badge"><i class="fas fa-search-plus"></i> بحث ذكي متقدم</span>
+                        <span class="project-badge"><i class="fas fa-keyboard"></i> اختصارات سريعة</span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- 2022: 3 Papers -->
-        <div class="portfolio-item snaps-inline" data-static-image="imgs/3papers.jpg" data-gif="imgs/3papers.gif">
-            <div class="project-year-bg">2022</div>
-            <div class="timeline-dot"></div>
-            <div class="project-content-wrapper container">
-                <h1 class="portfolio-title enam" style="direction: ltr">3 Papers</h1>
-                <div class="project-visual">
-                    <!-- Mobile Class -->
-                    <img src="imgs/3papers.jpg" class="lazy-media img-mobile" data-src="imgs/3papers.gif"
-                        alt="برنامج خلفيات متحركة" />
-                </div>
-                <div class="details" style="text-align: start; direction: rtl">
-                    <h2>برنامج خلفيات متحركة</h2>
-                    <a href="projects/3Papers/index.html" class="ProjectButton" target="_blank">جربه الان</a>
-                    <p>تطبيق لإنشاء خلفيات حية (Live Wallpapers) تتفاعل مع الصوت والموسيقى المحيطة.</p>
+    <!-- 2024: Tabibty -->
+    <div class="portfolio-item snaps-inline" data-static-image="imgs/tabibty.jpg" data-gif="imgs/tabibty.gif">
+        <div class="project-year-bg">2024</div>
+        <div class="timeline-dot"></div>
+        <div class="project-content-wrapper container">
+            <h1 class="portfolio-title enam" style="direction: ltr">طبيبتي</h1>
+            <div class="project-visual">
+                <img src="imgs/tabibty.jpg" class="lazy-media img-mobile" data-src="imgs/tabibty.gif" alt="tabibty" />
+            </div>
+            <div class="details" style="text-align: start; direction: rtl">
+                <h2>دليل طبيبات نسائي (طبيبتي)</h2>
+                <a href="projects/Tabibty/index.html" class="ProjectButton" target="_blank">جربه الان</a>
+                <p>منصة خدمية تعزز خصوصية المرأة في الرعاية الصحية، عبر تسهيل الوصول الفوري للطبيبات والطواقم الطبية
+                    النسائية في بيئة آمنة ومريحة.</p>
+                <div class="project-badges">
+                    <span class="project-badge"><i class="fas fa-user-md"></i> قاعدة بيانات مدققة</span>
+                    <span class="project-badge"><i class="fas fa-map-marked-alt"></i> بحث جغرافي ذكي</span>
+                    <span class="project-badge"><i class="fas fa-lock"></i> خصوصية تامة</span>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- 2024: Beauty Corner (VBA) -->
+    <div class="portfolio-item snaps-inline" data-static-image="imgs/BeautyCorner.jpg" data-gif="imgs/BeautyCorner.jpg">
+        <div class="project-year-bg">2024</div>
+        <div class="timeline-dot"></div>
+        <div class="project-content-wrapper container">
+            <h1 class="portfolio-title enam" style="direction: ltr">Excel Automation</h1>
+            <div class="project-visual">
+                <img src="imgs/BeautyCorner.jpg" class="lazy-media img-ultrawide" data-src="imgs/BeautyCorner.jpg"
+                    alt="Excel Automation" />
+            </div>
+            <div class="details" style="text-align: start; direction: rtl">
+                <h2>أتمتة العمليات المالية (VBA)</h2>
+                <a href="#contact" class="ProjectButton">تواصل لطلب أتمتة مخصصة</a>
+                <p>محرك أتمتة مخصص لمعالجة البيانات الضخمة وتحويلها إلى رؤى جرد وتقارير مالية دقيقة بلمسة زر، مما يرفع
+                    الكفاءة التشغيلية بنسبة 100%.</p>
+                <div class="project-badges">
+                    <span class="project-badge"><i class="fas fa-bolt"></i> معالجة فورية</span>
+                    <span class="project-badge"><i class="fas fa-file-chart-line"></i> تقارير جرد ورواكد</span>
+                    <span class="project-badge"><i class="fas fa-check-double"></i> دقة محاسبية مطلقة</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2024: Excel Course -->
+    <div class="portfolio-item snaps-inline" data-static-image="imgs/excelCourse.jpg" data-gif="imgs/excelCourse.jpg">
+        <div class="project-year-bg">2024</div>
+        <div class="timeline-dot"></div>
+        <div class="project-content-wrapper container">
+            <h1 class="portfolio-title enam" style="direction: ltr">Excel Course</h1>
+            <div class="project-visual">
+                <img src="imgs/excelCourse.jpg" class="img-mobile" alt="Excel Course" />
+            </div>
+            <div class="details" style="text-align: start; direction: rtl">
+                <h2>كورس Excel الاحترافي</h2>
+                <p>برنامج تدريبي مكثف صُمم لنقل المتدربين إلى مستوى الإتقان في البرمجة المحاسبية المتقدمة والحلول
+                    الذكية.</p>
+                <div class="project-badges">
+                    <span class="project-badge"><i class="fas fa-code"></i> إتقان برمجة VBA</span>
+                    <span class="project-badge"><i class="fas fa-chart-pie"></i> تحليل بيانات محاسبي</span>
+                    <span class="project-badge"><i class="fas fa-graduation-cap"></i> شهادات تدريبية</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2023: Horus Eye -->
+    <div class="portfolio-item snaps-inline" data-static-image="imgs/horus.jpg" data-gif="imgs/horus.gif">
+        <div class="project-year-bg">2023</div>
+        <div class="timeline-dot"></div>
+        <div class="project-content-wrapper container">
+            <h1 class="portfolio-title enam" style="direction: ltr">Horus Eye</h1>
+            <div class="project-visual">
+                <img src="imgs/horus.jpg" class="lazy-media img-mobile" data-src="imgs/horus.gif" alt="Horus Eye" />
+            </div>
+            <div class="details" style="text-align: start; direction: rtl">
+                <h2>Horus Eye (Showcase)</h2>
+                <button class="ProjectButton showcase-btn" style="cursor: not-allowed;">(Showcase Only)</button>
+                <p>منظومة برمجية لاختبار أمان الهواتف، تركز على تحليل القدرة على الوصول للوسائط وحماية خصوصية الشاشة من
+                    الاختراق.</p>
+                <p style="font-size: 0.75rem; color: var(--text-secondary); margin-top: -5px; line-height: 1.3;">* تم
+                    تطويره لأهداف تعليمية/بحثية حصراً؛ المشروع مغلق حالياً للامتثال للمعايير القانونية المصرية.</p>
+                <div class="project-badges">
+                    <span class="project-badge"><i class="fas fa-images"></i> سحب الصور والوسائط</span>
+                    <span class="project-badge"><i class="fas fa-mobile-alt"></i> لقطات الشاشة (Screenshots)</span>
+                    <span class="project-badge"><i class="fas fa-address-book"></i> الأرقام وسجل المكالمات</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 2022: 3 Papers -->
+    <div class="portfolio-item snaps-inline" data-static-image="imgs/3papers.jpg" data-gif="imgs/3papers.gif">
+        <div class="project-year-bg">2022</div>
+        <div class="timeline-dot"></div>
+        <div class="project-content-wrapper container">
+            <h1 class="portfolio-title enam" style="direction: ltr">3 Papers</h1>
+            <div class="project-visual">
+                <img src="imgs/3papers.jpg" class="lazy-media img-mobile" data-src="imgs/3papers.gif" alt="3Papers" />
+            </div>
+            <div class="details" style="text-align: start; direction: rtl">
+                <h2>3 Papers (خلفيات حية)</h2>
+                <a href="projects/3Papers/index.html" class="ProjectButton" target="_blank">جربه الان</a>
+                <p>تجربة بصرية إبداعية تدمج الفن بالتكنولوجيا، حيث يولد خلفيات حية تتفاعل ديناميكياً مع الأجواء الصوتية
+                    المحيطة.</p>
+                <div class="project-badges">
+                    <span class="project-badge"><i class="fas fa-music"></i> تفاعل صوتي ذكي</span>
+                    <span class="project-badge"><i class="fas fa-paint-brush"></i> تصميم فني ابتكاري</span>
+                    <span class="project-badge"><i class="fas fa-wind"></i> خلفيات ديناميكية</span>
+                </div>
+            </div>
+        </div>
+    </div>
 
     </div>
 

@@ -1,0 +1,217 @@
+/* Global Vars */
+:root {
+    --primary-color: #00bcd4; /* Cyan/Teal pop */
+    --secondary-color: #ff9800; /* Orange/Gold accent */
+    --bg-color: #1e1e1e;
+    --card-bg: #252526;
+    --text-color: #e0e0e0;
+    --muted-color: #9e9e9e;
+    --border-color: #333;
+    --font-heading: 'Tajawal', 'Segoe UI', sans-serif;
+    --font-body: 'Tajawal', 'Segoe UI', sans-serif;
+}
+
+/* Base Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 3rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 2rem;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header .role {
+    font-size: 1.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+    color: var(--muted-color);
+}
+
+.contact-info span i {
+    margin-right: 5px;
+    margin-left: 5px; /* RTL support */
+}
+
+/* Sections */
+section {
+    margin-bottom: 3rem;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    padding-right: 1rem; /* for RTL */
+    text-transform: uppercase;
+    position: relative;
+    display: inline-block;
+}
+
+/* Cards (Experience & Projects) */
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    border-color: var(--primary-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.card-subtitle {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+}
+
+.card-date {
+    font-size: 0.85rem;
+    color: var(--muted-color);
+    background: #333;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+}
+
+.card-body ul {
+    list-style-position: inside;
+    margin-top: 0.5rem;
+    color: #ccc;
+}
+
+.card-body li {
+    margin-bottom: 0.5rem;
+}
+
+/* Skills */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tag {
+    background: #333;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s;
+}
+
+.skill-tag:hover {
+    background: var(--primary-color);
+    color: #000;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9rem;
+    color: var(--muted-color);
+}
+
+/* RTL Specific Overrides (will be applied when html dir="rtl") */
+html[dir="rtl"] .section-title {
+    border-left: none;
+    border-right: 4px solid var(--primary-color);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    header h1 {
+        font-size: 2rem;
+    }
+    .card-header {
+        flex-direction: column;
+    }
+    .card-date {
+        margin-top: 0.5rem;
+    }
+}

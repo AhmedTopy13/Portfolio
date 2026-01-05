@@ -640,8 +640,107 @@ body {
     color: var(--accent-color);
 }
 
-.nav-download-btn:hover {
-    background: var(--accent-color);
-    color: #fff;
+/* Project Features Badges */
+.project-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.project-badge {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-badge:hover {
+    background: rgba(86, 156, 214, 0.1);
+    border-color: var(--accent-color);
+    color: var(--text-primary);
     transform: translateY(-2px);
+}
+
+.project-badge i {
+    color: var(--accent-color);
+    font-size: 0.85rem;
+}
+
+.nav-download-btn:hover {
+    background: var(--accent-color) !important;
+    color: var(--bg-color) !important;
+    /* Forces contrast using the dark theme background color */
+    transform: translateY(-2px);
+}
+
+/* --- SPLIT BUTTON STYLES --- */
+.split-btn-group {
+    display: inline-flex;
+    position: relative;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.cv-btn.split-main {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    margin-left: 0;
+    /* Default for RTL main button (Right) is normal. Left radius 0 to join */
+}
+
+.cv-btn.split-arrow {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    /* Separator */
+    padding: 0 10px;
+    margin-right: 0;
+    cursor: pointer;
+}
+
+.split-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    /* Full width */
+    background: #252526;
+    border: 1px solid #3e3e42;
+    border-radius: 4px;
+    z-index: 100;
+    flex-direction: column;
+    min-width: 160px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    margin-top: 5px;
+}
+
+.split-btn-group:hover .split-dropdown {
+    display: flex;
+}
+
+.split-dropdown a {
+    padding: 10px;
+    color: #d4d4d4;
+    text-decoration: none;
+    font-size: 0.9em;
+    border-bottom: 1px solid #3e3e42;
+    text-align: center;
+    background: #252526;
+}
+
+.split-dropdown a:last-child {
+    border-bottom: none;
+}
+
+.split-dropdown a:hover {
+    background: #333;
+    color: var(--accent-color);
 }
